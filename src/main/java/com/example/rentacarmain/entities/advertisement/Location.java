@@ -1,6 +1,5 @@
-package com.example.rentacarmain.entities.car;
+package com.example.rentacarmain.entities.advertisement;
 
-import com.example.rentacarmain.entities.advertisement.Advertisements;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,20 +7,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-@Entity(name = "car_list")
+@Entity(name = "location")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CarList {
+public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne
-    @JoinColumn(name = "advertisement_id")
-    Advertisements advertisements;
+    @Column(name = "location_name")
+    String locationName;
+
 
 
 }

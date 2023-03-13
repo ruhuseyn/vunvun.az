@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,17 +34,29 @@ public class Advertisements {
     @Column(name = "price")
     BigDecimal price;
 
+    @Column(name = "creation_time")
+    LocalDate creationTime;
+
+    @Column(name = "motor_volume")
+    String motorVolume;
+
+    @Column(name = "daily_payment")
+    Double dailyPayment;
+
+    @Column(name = "additional_details")
+    String additionalDetails;
+
     @ManyToOne
     @JoinColumn(name = "owner_id")
     Owners owner;
-
-    @OneToMany
-    @JoinColumn(name = "features")
-    List<Features> features;
-
-    @OneToMany
-    @JoinColumn(name = "reviews")
-    List<Reviews> reviews;
+//
+//    @OneToMany
+//    @JoinColumn(name = "features_id")
+//    List<Features> features;
+//
+//    @OneToMany
+//    @JoinColumn(name = "reviews")
+//    List<Reviews> reviews;
 
 
 }

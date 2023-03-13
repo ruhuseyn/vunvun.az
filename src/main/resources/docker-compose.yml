@@ -7,3 +7,5 @@ services:
       - '9300:9300'
     environment:
      - discovery.type=single-node
+     - cluster.name=my
+     - xpack.security.enabled:true

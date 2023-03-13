@@ -21,6 +21,12 @@ public class Owners {
     @Column(name = "id")
     Long id;
 
+    @Column(name = "image")
+    Byte[] hostImage;
+
+    @Column(name = "phone_number")
+    String phoneNumber;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     Users user;
