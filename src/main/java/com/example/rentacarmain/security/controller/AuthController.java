@@ -5,6 +5,8 @@ import com.example.rentacarmain.security.dto.AuthenticationResponse;
 import com.example.rentacarmain.security.dto.RegisterRequest;
 import com.example.rentacarmain.security.dto.RegistrationResponse;
 import com.example.rentacarmain.security.service.AuthenticationService;
+import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,9 +1,8 @@
 package com.example.rentacarmain.security.service;
 
-import com.ruhuseyn.racauth.entity.CustomUserDetails;
-import com.ruhuseyn.racauth.entity.User;
-import com.ruhuseyn.racauth.exception.IncorrectEmailException;
-import com.ruhuseyn.racauth.repository.UserRepository;
+import com.example.rentacarmain.security.entity.User;
+import com.example.rentacarmain.security.exception.IncorrectEmailException;
+import com.example.rentacarmain.security.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

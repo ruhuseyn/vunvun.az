@@ -1,6 +1,6 @@
 package com.example.rentacarmain.security.repository;
 
-import com.ruhuseyn.racauth.entity.User;
+import com.example.rentacarmain.security.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
