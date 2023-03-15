@@ -7,33 +7,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.time.LocalDate;
 
-@Entity(name = "images")
+@Entity(name = "advertisement")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Images {
-
+public class CarDetails {
 
     @Id
     @SequenceGenerator(
-            name = "images_id_seq",
-            sequenceName = "images_id_seq",
+            name = "details_id_seq",
+            sequenceName = "details_id_seq",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "images_id_seq")
+            generator = "details_id_seq")
     Long id;
 
-    @Column(name = "image_data")
-    byte[] imageData;
 
-    @ManyToOne
-    @JoinColumn(name = "advertisement_id")
-    Advertisements advertisement;
+    @Column(name = "creation_time")
+    LocalDate creationTime;
+
+    @Column(name = "motor_volume")
+    String motorVolume;
 
 }

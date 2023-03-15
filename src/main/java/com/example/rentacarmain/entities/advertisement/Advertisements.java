@@ -19,8 +19,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Advertisements {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     Long id;
@@ -34,11 +34,6 @@ public class Advertisements {
     @Column(name = "price")
     BigDecimal price;
 
-    @Column(name = "creation_time")
-    LocalDate creationTime;
-
-    @Column(name = "motor_volume")
-    String motorVolume;
 
     @Column(name = "daily_payment")
     Double dailyPayment;
@@ -49,14 +44,7 @@ public class Advertisements {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     Owners owner;
-//
-//    @OneToMany
-//    @JoinColumn(name = "features_id")
-//    List<Features> features;
-//
-//    @OneToMany
-//    @JoinColumn(name = "reviews")
-//    List<Reviews> reviews;
+
 
 
 }
