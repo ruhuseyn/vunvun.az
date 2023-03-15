@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
-@Entity(name = "advertisement")
+@Entity(name = "car_details")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

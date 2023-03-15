@@ -1,6 +1,6 @@
 package com.example.rentacarmain.security.repository;
 
-import com.ruhuseyn.racauth.entity.UserRedisHash;
+import com.example.rentacarmain.security.entity.UserRedisHash;
 import jakarta.transaction.Transactional;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,7 +13,7 @@ public class UserRedisRepository {
 
     private static final String KEY = "user_hash";
 
-    private final HashOperations<String,String,UserRedisHash> hashOperations;
+    private final HashOperations<String,String, UserRedisHash> hashOperations;
 
     public UserRedisRepository(RedisTemplate<String,UserRedisHash> redisTemplate) {
         this.hashOperations = redisTemplate.opsForHash();

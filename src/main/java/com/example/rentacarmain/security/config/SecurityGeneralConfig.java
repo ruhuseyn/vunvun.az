@@ -1,6 +1,6 @@
 package com.example.rentacarmain.security.config;
 
-import com.ruhuseyn.racauth.service.CustomUserDetailsService;
+import com.example.rentacarmain.security.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
