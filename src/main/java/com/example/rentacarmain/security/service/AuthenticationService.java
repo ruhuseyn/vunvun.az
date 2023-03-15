@@ -1,17 +1,17 @@
 package com.example.rentacarmain.security.service;
 
-import com.example.rentacarmain.security.config.JwtService;
-import com.example.rentacarmain.security.dto.AuthenticationRequest;
-import com.example.rentacarmain.security.dto.AuthenticationResponse;
-import com.example.rentacarmain.security.dto.RegisterRequest;
-import com.example.rentacarmain.security.dto.RegistrationResponse;
-import com.example.rentacarmain.security.entity.Role;
-import com.example.rentacarmain.security.entity.Users;
-import com.example.rentacarmain.security.entity.UserRedisHash;
-import com.example.rentacarmain.security.exception.ExpiredVerificationCodeException;
-import com.example.rentacarmain.security.exception.IncorrectVerificationCodeException;
-import com.example.rentacarmain.security.repository.UserRedisRepository;
-import com.example.rentacarmain.security.repository.UserRepository;
+import com.ruhuseyn.racauth.config.JwtService;
+import com.ruhuseyn.racauth.dto.AuthenticationRequest;
+import com.ruhuseyn.racauth.dto.AuthenticationResponse;
+import com.ruhuseyn.racauth.dto.RegisterRequest;
+import com.ruhuseyn.racauth.dto.RegistrationResponse;
+import com.ruhuseyn.racauth.entity.Role;
+import com.ruhuseyn.racauth.entity.User;
+import com.ruhuseyn.racauth.entity.UserRedisHash;
+import com.ruhuseyn.racauth.exception.ExpiredVerificationCodeException;
+import com.ruhuseyn.racauth.exception.IncorrectVerificationCodeException;
+import com.ruhuseyn.racauth.repository.UserRedisRepository;
+import com.ruhuseyn.racauth.repository.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.validation.constraints.Email;
@@ -34,41 +34,33 @@ public record AuthenticationService(CustomUserDetailsService authService,
                                     UserRedisRepository redisRepository,
                                     PasswordEncoder encoder,
                                     JwtService jwtService,
-                                    AuthenticationManager manager,
+                                    AuthenticationManager authenticationManager,
                                     JavaMailSender mailSender) {
 
 
     static final String FROM_ADDRESS = "vega.pro853@gmail.com";
 
     public RegistrationResponse register(RegisterRequest request) throws MessagingException, UnsupportedEncodingException {
-        var user = Users
-                .builder()
-                .email(request.email())
-                .password(encoder.encode(request.password()))
-                .role(Role.USER)
-                .active(false)
-                .build();
-        repository.save(user);
 
         String verificationCode = UUID.randomUUID().toString();
+
         UserRedisHash userRedisHash = UserRedisHash
                 .builder()
-                .email(user.getEmail())
+                .email(request.email())
                 .verificationCode(verificationCode)
                 .generatedDateTime(LocalDateTime.now())
+                .password(encoder.encode(request.password()))
                 .build();
         redisRepository.save(userRedisHash);
 
-        sendVerificationEmail(userRedisHash);
+        sendVerificationEmail(request.email(), verificationCode);
 
         return RegistrationResponse
-                .builder()
-                .message("Successfully added. Verification link has been sent to your email : " + request.email())
-                .build();
+                .builder().message("Successfully added. Verification link has been sent to your email : " + request.email()).build();
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        manager.authenticate(
+        authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.email(),
                         request.password()
@@ -82,10 +74,9 @@ public record AuthenticationService(CustomUserDetailsService authService,
                 .build();
     }
 
-    private void sendVerificationEmail(UserRedisHash user)
+    private void sendVerificationEmail(String email, String verificationCode)
             throws MessagingException, UnsupportedEncodingException {
-        String toAddress = user.getEmail();
-        String senderName = "UKKU AZ";
+        String senderName = "RentalHub";
         String subject = "Hesabınızı təsdiqləyin";
         String content = "Əziz istifadəçimiz, <br>"
                 + "Təhlükəsizlik linkiniz:<br>"
@@ -98,12 +89,12 @@ public record AuthenticationService(CustomUserDetailsService authService,
 
 
         helper.setFrom(FROM_ADDRESS, senderName);
-        helper.setTo(toAddress);
+        helper.setTo(email);
         helper.setSubject(subject);
 
 
-        content = content.replace("[[email]]", user.getEmail());
-        content = content.replace("[[verificationCode]]", user.getVerificationCode());
+        content = content.replace("[[email]]", email);
+        content = content.replace("[[verificationCode]]", verificationCode);
 
         helper.setText(content, true);
 
@@ -119,12 +110,21 @@ public record AuthenticationService(CustomUserDetailsService authService,
             repository.deleteUserByEmail(email);
             throw new ExpiredVerificationCodeException(
                     """
-                    Verification code is expired.
-                    Please register again!
-                    """);
+                            Verification code is expired.
+                            Please register again!
+                            """);
         }
 
-        repository.activateByEmail(true,email);
+        repository.save(
+                User.builder()
+                        .active(true)
+                        .role(Role.USER)
+                        .email(redisHash.getEmail())
+                        .password(redisHash.getPassword())
+                        .build()
+        );
+
+        redisRepository.deleteById(email);
 
     }
 }

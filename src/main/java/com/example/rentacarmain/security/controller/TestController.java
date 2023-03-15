@@ -1,8 +1,7 @@
 package com.example.rentacarmain.security.controller;
 
-
-import com.example.rentacarmain.security.entity.UserRedisHash;
-import com.example.rentacarmain.security.repository.UserRedisRepository;
+import com.ruhuseyn.racauth.entity.UserRedisHash;
+import com.ruhuseyn.racauth.repository.UserRedisRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

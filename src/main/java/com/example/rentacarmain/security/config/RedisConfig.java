@@ -1,6 +1,6 @@
 package com.example.rentacarmain.security.config;
 
-import com.example.rentacarmain.security.entity.UserRedisHash;
+import com.ruhuseyn.racauth.entity.UserRedisHash;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, UserRedisHash> redisTemplate(){
+    public RedisTemplate<String,UserRedisHash> redisTemplate(){
         RedisTemplate<String, UserRedisHash> template = new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory());
         return template;

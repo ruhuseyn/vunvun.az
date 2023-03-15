@@ -1,6 +1,7 @@
 package com.example.rentacarmain.entities.es;
 
 import com.example.rentacarmain.entities.Owners;
+import com.example.rentacarmain.entities.advertisement.CarDetails;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,39 +13,32 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity(name = "elastic_search")
+//@Entity(name = "advertisement")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Document(indexName = "elasticsearch")
+@Document(indexName = "advertisement")
 public class AdvertisementEs {
 
-    @Id
+//    @Id
     Long id;
 
-    @Column(name = "title")
-    String title;
+    CarDetails carDetails;
 
-    @Column(name = "discount")
+//    @Column(name = "discount")
     Double discount;
 
-    @Column(name = "price")
-    BigDecimal price;
-
-    @Column(name = "creation_time")
-    LocalDate creationTime;
-
-    @Column(name = "motor_volume")
-    String motorVolume;
-
-    @Column(name = "daily_payment")
+//    @Column(name = "daily_payment")
     Double dailyPayment;
 
-    @Column(name = "additional_details")
+//    @Column(name = "additional_details")
     String additionalDetails;
 
-    @Column(name = "owner_id")
-    Long owner_id;
+//    @ManyToOne
+//    @JoinColumn(name = "owner_id")
+    Owners owner;
+
+
 
 }

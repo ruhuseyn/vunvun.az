@@ -1,10 +1,10 @@
 package com.example.rentacarmain.security.controller;
 
-import com.example.rentacarmain.security.dto.AuthenticationRequest;
-import com.example.rentacarmain.security.dto.AuthenticationResponse;
-import com.example.rentacarmain.security.dto.RegisterRequest;
-import com.example.rentacarmain.security.dto.RegistrationResponse;
-import com.example.rentacarmain.security.service.AuthenticationService;
+import com.ruhuseyn.racauth.dto.AuthenticationRequest;
+import com.ruhuseyn.racauth.dto.AuthenticationResponse;
+import com.ruhuseyn.racauth.dto.RegisterRequest;
+import com.ruhuseyn.racauth.dto.RegistrationResponse;
+import com.ruhuseyn.racauth.service.AuthenticationService;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
