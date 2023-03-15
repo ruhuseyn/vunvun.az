@@ -17,9 +17,16 @@ import java.util.Objects;
 
 
 public class Features {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
-    @Column(name = "id")
+    @SequenceGenerator(
+            name = "features_id_seq",
+            sequenceName = "features_id_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "features_id_seq")
     Long id;
 
     @Column(name = "title")
