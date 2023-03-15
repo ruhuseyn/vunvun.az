@@ -7,17 +7,19 @@ import org.springframework.data.elasticsearch.client.elc.ElasticsearchConfigurat
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.lang.NonNull;
 
+import javax.net.ssl.SSLContext;
+import java.security.NoSuchAlgorithmException;
+
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "*")
 public class ElasticSearchConfig extends ElasticsearchConfiguration {
 
     @Override
     @NonNull
-    @Bean
     public ClientConfiguration clientConfiguration() {
-        return ClientConfiguration.builder()
-                .connectedTo("localhost:9200")
-                .withBasicAuth("elastic","R1NT3n+Diptw+9ir-33h")
-                .build();
+            return ClientConfiguration.builder()
+                    .connectedTo("localhost:9200")
+                    .build();
+
     }
 }
