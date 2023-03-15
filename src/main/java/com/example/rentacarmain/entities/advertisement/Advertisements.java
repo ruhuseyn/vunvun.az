@@ -21,19 +21,23 @@ import java.util.Objects;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Advertisements {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @SequenceGenerator(
+            name = "advertisement_id_seq",
+            sequenceName = "advertisement_id_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "advertisement_id_seq")
     Long id;
 
-    @Column(name = "description")
-    String description;
+    @OneToOne
+    @JoinColumn(name = "details_id")
+    CarDetails carDetails;
 
     @Column(name = "discount")
     Double discount;
-
-    @Column(name = "price")
-    BigDecimal price;
-
 
     @Column(name = "daily_payment")
     Double dailyPayment;

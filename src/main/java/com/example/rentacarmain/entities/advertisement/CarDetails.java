@@ -27,6 +27,10 @@ public class CarDetails {
             generator = "details_id_seq")
     Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    Model model;
+
 
     @Column(name = "creation_time")
     LocalDate creationTime;

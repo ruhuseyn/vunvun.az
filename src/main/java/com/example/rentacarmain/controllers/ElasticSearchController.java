@@ -1,6 +1,7 @@
-package com.example.rentacarmain.repositories.es;
+package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.entities.es.AdvertisementEs;
+import com.example.rentacarmain.repositories.es.ElasticSearchRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
