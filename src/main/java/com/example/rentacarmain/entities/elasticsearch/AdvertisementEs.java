@@ -1,4 +1,4 @@
-package com.example.rentacarmain.entities.es;
+package com.example.rentacarmain.entities.elasticsearch;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -7,8 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Entity(name = "elastic_search")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +21,13 @@ public class AdvertisementEs {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne
-    @JoinColumn(name = "carlist_id")
-    CarList carList;
+    @Field(type = FieldType.Keyword)
+    String title;
+
+    @Field(type = FieldType.Keyword)
+    String description;
+
+    Double price;
+
+
 }

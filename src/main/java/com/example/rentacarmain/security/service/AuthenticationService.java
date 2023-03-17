@@ -6,7 +6,7 @@ import com.example.rentacarmain.security.dto.AuthenticationResponse;
 import com.example.rentacarmain.security.dto.RegisterRequest;
 import com.example.rentacarmain.security.dto.RegistrationResponse;
 import com.example.rentacarmain.security.entity.Role;
-import com.example.rentacarmain.security.entity.User;
+import com.example.rentacarmain.security.entity.Users;
 import com.example.rentacarmain.security.entity.UserRedisHash;
 import com.example.rentacarmain.security.exception.ExpiredVerificationCodeException;
 import com.example.rentacarmain.security.exception.IncorrectVerificationCodeException;
@@ -41,7 +41,7 @@ public record AuthenticationService(CustomUserDetailsService authService,
     static final String FROM_ADDRESS = "vega.pro853@gmail.com";
 
     public RegistrationResponse register(RegisterRequest request) throws MessagingException, UnsupportedEncodingException {
-        var user = User
+        var user = Users
                 .builder()
                 .email(request.email())
                 .password(encoder.encode(request.password()))

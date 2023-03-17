@@ -52,7 +52,7 @@ public class Advertisements {
 //
 //    @OneToMany
 //    @JoinColumn(name = "features_id")
-//    List<Features> features;
+//    List<Features> features;  WJLKFBKjfbsdhjfcbksdncjs hacvlwbcj;ASDBCLHJDSCVSVACBSJCBHDSHVCHSDGVAKJDS
 //
 //    @OneToMany
 //    @JoinColumn(name = "reviews")

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Users {
 
     @Id
     @SequenceGenerator(

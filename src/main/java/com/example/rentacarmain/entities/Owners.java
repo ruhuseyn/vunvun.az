@@ -1,5 +1,6 @@
 package com.example.rentacarmain.entities;
 
+import com.example.rentacarmain.security.entity.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
