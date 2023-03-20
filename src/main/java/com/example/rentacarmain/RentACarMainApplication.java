@@ -7,6 +7,7 @@ import com.example.rentacarmain.repositories.BrandRepository;
 import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,13 +17,14 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableElasticsearchRepositories(basePackages = "*")
+@RequiredArgsConstructor
 public class RentACarMainApplication {
 
-    private BrandRepository brandRepository;
+    private final BrandRepository brandRepository;
 
-    private ModelRepository modelRepository;
+    private final ModelRepository modelRepository;
 
-    private LocationRepository locationRepository;
+    private final LocationRepository locationRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(RentACarMainApplication.class, args);

@@ -18,8 +18,7 @@ public class ServiceES {
 
         public List<AdvertisementEs> findAdvertisements(String title,int pageSize) {
         Page<AdvertisementEs> findAdvertisements = elasticSearchRepo.findByTitleLike(title, Pageable.ofSize(pageSize));
-        List<AdvertisementEs> adList = findAdvertisements.get().toList();
-        return adList;
+            return findAdvertisements.get().toList();
     }
 
     public void addAdvetisements(AdvertisementEs advertisementEs){

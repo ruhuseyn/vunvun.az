@@ -10,6 +10,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,16 +20,16 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class AdvertisementEs {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Field(type = FieldType.Keyword)
     String title;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     String description;
 
-    Double price;
+    @Field(type = FieldType.Integer)
+    Integer price;
 
 
 }
