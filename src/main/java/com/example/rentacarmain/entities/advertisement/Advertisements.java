@@ -21,8 +21,15 @@ import java.util.Objects;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 public class Advertisements {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @SequenceGenerator(
+            name = "adv_id_seq",
+            sequenceName = "adv_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "adv_id_seq")
     Long id;
 
     @Column(name = "description")

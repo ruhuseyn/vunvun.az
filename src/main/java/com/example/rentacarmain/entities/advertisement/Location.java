@@ -15,7 +15,13 @@ import lombok.experimental.FieldDefaults;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "location_id_seq",
+            sequenceName = "location_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "location_id_seq")
     Long id;
 
     @Column(name = "location_name")

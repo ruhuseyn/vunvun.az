@@ -3,8 +3,8 @@ package com.example.rentacarmain.repositories.elasticsearch;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
