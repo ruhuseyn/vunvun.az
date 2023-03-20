@@ -1,7 +1,14 @@
 package com.example.rentacarmain.entities.advertisement;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+@Entity(name = "brand")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Brand {
 
     @Id

@@ -8,13 +8,14 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
-//@RedisHash("users")
 @Builder
 @Data
 public class UserRedisHash implements Serializable {
 
 
     String email;
+
+    String password;
 
     String verificationCode;
 

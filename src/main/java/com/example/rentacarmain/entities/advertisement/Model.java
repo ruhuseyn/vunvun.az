@@ -2,7 +2,17 @@ package com.example.rentacarmain.entities.advertisement;
 
 import com.example.rentacarmain.entities.advertisement.Brand;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
+@Entity(name = "model")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Model {
 
     @Id

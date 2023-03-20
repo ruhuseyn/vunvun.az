@@ -16,10 +16,7 @@ import java.util.Objects;
 
 @Entity(name = "advertisement")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Advertisements {
 
     @Id

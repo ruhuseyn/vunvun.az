@@ -19,8 +19,5 @@ public record CustomUserDetailsService(UserRepository service) implements UserDe
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<Users> user = service.findUserByEmail(email);
         return user.map(CustomUserDetails::new).orElseThrow(() -> new IncorrectEmailException("not found"));
-
     }
 }
-// YOX AQ DEMELI NESE PROBLEM VAR YETO
-// efault olaraq bu UserDetailsSerdemisen kardesim bilirem orasin prosta napim bilme

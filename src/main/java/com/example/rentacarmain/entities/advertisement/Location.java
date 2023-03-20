@@ -9,8 +9,8 @@ import lombok.experimental.FieldDefaults;
 
 @Entity(name = "location")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Location {
 

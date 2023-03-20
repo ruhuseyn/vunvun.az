@@ -17,21 +17,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rent")
-@FieldDefaults(level = AccessLevel.PUBLIC)
 public record AdvertisementController(AdvertisementManager advertisementManager) {
 
     @GetMapping("/brand")
-    Advertisements getCarByBrand(@RequestParam Brand brand) {
+    public Advertisements getCarByBrand(@RequestParam Brand brand) {
         return advertisementManager.getCarByBrand(brand);
     }
 
     @GetMapping("/model")
-    List<Advertisements> getCarsByModel(@RequestParam Model model) {
+    public List<Advertisements> getCarsByModel(@RequestParam Model model) {
         return advertisementManager.getCarsByModel(model);
     }
 
     @GetMapping("/location")
-    List<Advertisements> getCarsByLocation(@RequestParam Location location) {
+    public List<Advertisements> getCarsByLocation(@RequestParam Location location) {
         return advertisementManager.getCarsByLocation(location);
     }
 }

@@ -23,13 +23,12 @@ public class CustomUserDetails implements UserDetails {
 
      Role role;
 
-    public CustomUserDetails(Users user) {
-        this.email = user.getEmail();
-        this.password = user.getPassword();
-        this.active = user.getActive();
-        this.role = user.getRole();
+    public CustomUserDetails(Users users) {
+        this.email = users.getEmail();
+        this.password = users.getPassword();
+        this.active = users.getActive();
+        this.role = users.getRole();
     }
-    // men de oz user entity mi cevirirem userdetails ehmm YES
 
 
     @Override
