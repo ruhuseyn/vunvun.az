@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rent")
+@RequestMapping("/adv")
 public record AdvertisementController(AdvertisementManager advertisementManager) {
 
     @GetMapping("/brand")
     public Advertisements getCarByBrand(@RequestParam Brand brand) {
+
+
         return advertisementManager.getCarByBrand(brand);
     }
 
