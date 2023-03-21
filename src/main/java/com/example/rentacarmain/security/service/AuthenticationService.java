@@ -56,7 +56,9 @@ public record AuthenticationService(CustomUserDetailsService authService,
         sendVerificationEmail(request.email(), verificationCode);
 
         return RegistrationResponse
-                .builder().message("Successfully added. Verification link has been sent to your email : " + request.email()).build();
+                .builder()
+                .message("Successfully added. Verification link has been sent to your email : " + request.email())
+                .build();
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
