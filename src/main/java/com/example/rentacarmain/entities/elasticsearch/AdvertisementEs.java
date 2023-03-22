@@ -1,10 +1,7 @@
 package com.example.rentacarmain.entities.elasticsearch;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -12,6 +9,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 
 @Data
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Document(indexName = "advertisement")
 public class AdvertisementEs {
