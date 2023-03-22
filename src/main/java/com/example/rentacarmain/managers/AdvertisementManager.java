@@ -5,6 +5,7 @@ import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
+import com.example.rentacarmain.mapper.AdvertisementMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public record AdvertisementManager(AdvertisementRepository repository) implements AdvertisementsService {
+public record AdvertisementManager(AdvertisementRepository repository,
+                                   AdvertisementMapper mapper) implements AdvertisementsService {
     @Override
     public Advertisements getCarByBrand(Brand brand) {
         return null;
@@ -30,6 +32,6 @@ public record AdvertisementManager(AdvertisementRepository repository) implement
 
     @Override
     public void addAdvertisement(AdvertisementRequest request) {
-
+        mapper.advRequestToAdv(request);
     }
 }
