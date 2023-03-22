@@ -1,39 +1,42 @@
 package com.example.rentacarmain.controller;
 
+import com.example.rentacarmain.dto.AdvertisementRequest;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.managers.AdvertisementManager;
-import com.example.rentacarmain.services.AdvertisementsService;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/adv")
-public record AdvertisementController(AdvertisementManager advertisementManager) {
+@RequestMapping("/advertisement")
+public record AdvertisementController(AdvertisementManager manager) {
+
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public String addAdv(@RequestBody AdvertisementRequest request){
+        manager.addAdvertisement(request);
+        return "Ugurla elave edildi";
+    }
 
     @GetMapping("/brand")
     public Advertisements getCarByBrand(@RequestParam Brand brand) {
 
 
-        return advertisementManager.getCarByBrand(brand);
+        return manager.getCarByBrand(brand);
     }
 
     @GetMapping("/model")
     public List<Advertisements> getCarsByModel(@RequestParam Model model) {
-        return advertisementManager.getCarsByModel(model);
+        return manager.getCarsByModel(model);
     }
 
     @GetMapping("/location")
     public List<Advertisements> getCarsByLocation(@RequestParam Location location) {
-        return advertisementManager.getCarsByLocation(location);
+        return manager.getCarsByLocation(location);
     }
 }

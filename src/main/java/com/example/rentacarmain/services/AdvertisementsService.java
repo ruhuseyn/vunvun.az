@@ -1,5 +1,6 @@
 package com.example.rentacarmain.services;
 
+import com.example.rentacarmain.dto.AdvertisementRequest;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.entities.advertisement.Location;
@@ -16,6 +17,5 @@ public interface AdvertisementsService {
     List<Advertisements> getCarsByLocation(Location location);
 
 
-
-
+    void addAdvertisement(AdvertisementRequest request);
 }

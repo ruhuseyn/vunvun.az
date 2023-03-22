@@ -18,12 +18,17 @@ import java.util.Objects;
 public class Owners {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @SequenceGenerator(
+            name = "owner_id_seq",
+            sequenceName = "owner_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "owner_id_seq")
     Long id;
 
-    @Column(name = "image")
-    Byte[] hostImage;
+//    @Column(name = "image")
+//    Byte[] hostImage;
 
     @Column(name = "phone_number")
     String phoneNumber;

@@ -1,5 +1,6 @@
 package com.example.rentacarmain.managers;
 
+import com.example.rentacarmain.dto.AdvertisementRequest;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.entities.advertisement.Location;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public record AdvertisementManager(AdvertisementRepository advertisementRepository) implements AdvertisementsService {
+public record AdvertisementManager(AdvertisementRepository repository) implements AdvertisementsService {
     @Override
     public Advertisements getCarByBrand(Brand brand) {
         return null;
@@ -25,5 +26,10 @@ public record AdvertisementManager(AdvertisementRepository advertisementReposito
     @Override
     public List<Advertisements> getCarsByLocation(Location location) {
         return null;
+    }
+
+    @Override
+    public void addAdvertisement(AdvertisementRequest request) {
+
     }
 }

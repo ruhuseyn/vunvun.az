@@ -32,9 +32,6 @@ public class Advertisements {
     @Column(name = "description")
     String description;
 
-    @Column(name = "discount")
-    Double discount;
-
     @Column(name = "price")
     BigDecimal price;
 
@@ -44,15 +41,21 @@ public class Advertisements {
     @Column(name = "motor_volume")
     String motorVolume;
 
-    @Column(name = "daily_payment")
-    Double dailyPayment;
-
-    @Column(name = "additional_details")
-    String additionalDetails;
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    Model model;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
     Owners owner;
+
+    //    @Column(name = "discount")
+//    Double discount;
+//    @Column(name = "daily_payment")
+//    Double dailyPayment;
+//
+//    @Column(name = "additional_details")
+//    String additionalDetails;
 //
 //    @OneToMany
 //    @JoinColumn(name = "features_id")

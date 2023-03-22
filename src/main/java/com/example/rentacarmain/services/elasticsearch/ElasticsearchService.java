@@ -16,11 +16,11 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ServiceES {
+public class ElasticsearchService {
 
     private final ElasticSearchRepo elasticSearchRepo;
 
-    Logger logger = LoggerFactory.getLogger(ServiceES.class);
+    Logger logger = LoggerFactory.getLogger(ElasticsearchService.class);
 
     public PageableAdvResponse findAdvertisements(int page, int count) {
         logger.info("get all payments started");

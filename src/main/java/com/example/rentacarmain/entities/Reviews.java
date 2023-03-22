@@ -18,10 +18,17 @@ import java.util.Objects;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Reviews {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
-    @Column(name = "id")
-    private long id;
+    @SequenceGenerator(
+            name = "review_id_seq",
+            sequenceName = "review_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "review_id_seq")
+    private Long id;
+
     @Column(name = "date")
     private Date date;
 

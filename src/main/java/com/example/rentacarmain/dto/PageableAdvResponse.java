@@ -5,19 +5,17 @@ import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class PageableAdvResponse {
+public record PageableAdvResponse(
+        List<AllAdvResponse> advResponses,
 
-    List<AllAdvResponse> advResponses;
+        Long total,
 
-    Long total;
+        int totalPages,
 
-    int totalPages;
+        boolean hasNextPage
+) {
 
-    boolean hasNextPage;
+
 
 }

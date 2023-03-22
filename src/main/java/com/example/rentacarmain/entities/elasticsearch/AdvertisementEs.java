@@ -22,8 +22,11 @@ public class AdvertisementEs {
     @Field(type = FieldType.Keyword)
     String title;
 
-    @Field(type = FieldType.Text)
-    String description;
+   @Field(type = FieldType.Long)
+   Long brandId;
+
+   @Field(type = FieldType.Long)
+   Long modelId;
 
     @Field(type = FieldType.Integer)
     Integer price;
