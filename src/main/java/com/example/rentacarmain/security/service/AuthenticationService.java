@@ -16,6 +16,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,14 +29,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
-public record AuthenticationService(CustomUserDetailsService authService,
+@RequiredArgsConstructor
+public class AuthenticationService {
+    private final CustomUserDetailsService authService;
 
-                                    UserRepository repository,
-                                    UserRedisRepository redisRepository,
-                                    PasswordEncoder encoder,
-                                    JwtService jwtService,
-                                    AuthenticationManager authenticationManager,
-                                    JavaMailSender mailSender) {
+    private final UserRepository repository;
+    private final UserRedisRepository redisRepository;
+    private final PasswordEncoder encoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+    private final JavaMailSender mailSender;
 
 
     static final String FROM_ADDRESS = "vega.pro853@gmail.com";

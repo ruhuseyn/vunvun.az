@@ -42,6 +42,10 @@ public class Advertisements {
     String motorVolume;
 
     @ManyToOne
+    @JoinColumn(name = "location_id")
+    Location location;
+
+    @ManyToOne
     @JoinColumn(name = "model_id")
     Model model;
 

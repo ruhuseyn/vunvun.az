@@ -15,9 +15,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public record AdvertisementManager(AdvertisementRepository repository,
-                                   AdvertisementMapper mapper,
-                                   ElasticsearchService elasticsearchService) implements AdvertisementsService {
+public class AdvertisementManager implements AdvertisementsService {
+
+    private final AdvertisementRepository repository;
+    private final AdvertisementMapper mapper;
+    private final ElasticsearchService elasticsearchService;
+
+    public AdvertisementManager(AdvertisementRepository repository,
+                                AdvertisementMapper mapper,
+                                ElasticsearchService elasticsearchService) {
+        this.repository = repository;
+        this.mapper = mapper;
+        this.elasticsearchService = elasticsearchService;
+    }
+
     @Override
     public Advertisements getCarByBrand(Brand brand) {
         return null;

@@ -27,6 +27,4 @@ public class Location {
     @Column(name = "location_name")
     String locationName;
 
-
-
 }

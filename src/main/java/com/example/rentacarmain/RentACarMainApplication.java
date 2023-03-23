@@ -17,47 +17,47 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableElasticsearchRepositories(basePackages = "*")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class RentACarMainApplication {
 
-    private final BrandRepository brandRepository;
+//    private final BrandRepository brandRepository;
 
-    private final ModelRepository modelRepository;
+//    private final ModelRepository modelRepository;
 
-    private final LocationRepository locationRepository;
+//    private final LocationRepository locationRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(RentACarMainApplication.class, args);
     }
 
-    @PostConstruct
-    public void initialize() {
-        initializeBrands();
-        initializeLocations();
-        initializeModels();
-    }
-
-    private void initializeBrands() {
-        for (int i = 0; i < 10; i++) {
-            brandRepository.save(new Brand(null, "brand" + i));
-        }
-    }
-
-
-    private void initializeLocations() {
-        for (int i = 0; i < 10; i++) {
-            locationRepository.save(new Location(null, "location" + i));
-        }
-    }
-
-    private void initializeModels() {
-        for (int i = 0; i < 5; i++) {
-            modelRepository.save(new Model(null, "model" + i, new Brand(1L, null)));
-        }
-        for (int i = 5; i < 10; i++) {
-            modelRepository.save(new Model(null, "model" + i, new Brand(2L, null)));
-        }
-    }
+//    @PostConstruct
+//    public void initialize() {
+//        initializeBrands();
+//        initializeLocations();
+//        initializeModels();
+//    }
+//
+//    private void initializeBrands() {
+//        for (int i = 0; i < 10; i++) {
+//            brandRepository.save(new Brand(null, "brand" + i));
+//        }
+//    }
+//
+//
+//    private void initializeLocations() {
+//        for (int i = 0; i < 10; i++) {
+//            locationRepository.save(new Location(null, "location" + i));
+//        }
+//    }
+//
+//    private void initializeModels() {
+//        for (int i = 0; i < 5; i++) {
+//            modelRepository.save(new Model(null, "model" + i, new Brand(1L, null)));
+//        }
+//        for (int i = 5; i < 10; i++) {
+//            modelRepository.save(new Model(null, "model" + i, new Brand(2L, null)));
+//        }
+//    }
 
 
 }
