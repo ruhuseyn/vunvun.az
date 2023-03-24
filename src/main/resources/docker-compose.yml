@@ -1,0 +1,13 @@
+#version: 'latest'
+#services:
+#  elasticsearch:
+#    image: elasticsearch:8.6.2
+#    ports:
+#      - '9200:9200'
+#      - '9300:9300'
+#    environment:
+#     - discovery.type=single-node
+#     - cluster.name=ruhuseyn
+#     - xpack.security.enabled:true
+#     - network.host:127.0.0.1
+# LAZIMSIZDI ARTIQ hmm nem

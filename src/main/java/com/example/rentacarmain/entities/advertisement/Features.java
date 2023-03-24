@@ -24,6 +24,4 @@ public class Features {
 
     @Column(name = "title")
     String title;
-
-
 }

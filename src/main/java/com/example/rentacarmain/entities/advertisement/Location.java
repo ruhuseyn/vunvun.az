@@ -1,4 +1,4 @@
-package com.example.rentacarmain.entities;
+package com.example.rentacarmain.entities.advertisement;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -9,18 +9,22 @@ import lombok.experimental.FieldDefaults;
 
 @Entity(name = "location")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "location_id_seq",
+            sequenceName = "location_id_seq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "location_id_seq")
     Long id;
 
     @Column(name = "location_name")
     String locationName;
-
-
 
 }
