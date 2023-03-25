@@ -17,7 +17,7 @@ public interface ElasticSearchRepo extends ElasticsearchRepository<Advertisement
 
 //    @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"firstName\", \"lastName\"], \"fuzziness\": \"AUTO\"}}")
 //    @Query("{\"match\": {\"title\": {\"query\": \"?0\",\"fuzziness\": \"1\", \"operator\": \"or\"}}}")
-    @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"title\"], \"fuzziness\": \"2\"}}")
+    @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"title\"], \"fuzziness\": \"AUTO\"}}")
     Page<AdvertisementEs> justFind(String title,Pageable pageable);
 
 }
