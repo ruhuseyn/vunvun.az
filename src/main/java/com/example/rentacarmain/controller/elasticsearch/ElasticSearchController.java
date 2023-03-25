@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/elasticsearch")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public record ElasticSearchController(ElasticsearchService service) {
 
 
