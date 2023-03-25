@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,6 +19,6 @@ public interface ElasticSearchRepo extends ElasticsearchRepository<Advertisement
 //    @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"firstName\", \"lastName\"], \"fuzziness\": \"AUTO\"}}")
 //    @Query("{\"match\": {\"title\": {\"query\": \"?0\",\"fuzziness\": \"1\", \"operator\": \"or\"}}}")
     @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"title\"], \"fuzziness\": \"AUTO\"}}")
-    Page<AdvertisementEs> justFind(String title,Pageable pageable);
+    Page<AdvertisementEs> justFind(@Param(value = "title") String title, Pageable pageable);
 
 }
