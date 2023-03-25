@@ -84,8 +84,8 @@ public class AuthenticationService {
         String senderName = "RentalHub";
         String subject = "Hesabınızı təsdiqləyin";
         String content = "Əziz istifadəçimiz, <br>"
-                + "Təhlükəsizlik linkiniz:<br>"
-                + "<a href=\"http://localhost:8080/auth/verify?email=[[email]]&code=[[verificationCode]]\"><br>Zəhmət olmasa klikləyin</a>"
+                + "Təsdiqləmə linkiniz:<br>"
+                + "<a href=\"https://vunvunn.live/auth/verify?email=[[email]]&code=[[verificationCode]]\"><br>Zəhmət olmasa klikləyin</a>"
                 + "Təşşəkür edirik, "
                 + senderName;
 
