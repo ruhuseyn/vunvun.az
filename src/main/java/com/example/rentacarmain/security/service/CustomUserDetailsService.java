@@ -22,6 +22,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<Users> user = service.findUserByEmail(email);
-        return user.map(CustomUserDetails::new).orElseThrow(() -> new IncorrectEmailException("not found"));
+        return user.map(CustomUserDetails::new).orElseThrow(() -> new IncorrectEmailException("Email və ya şifrə yanlışdır!"));
     }
 }

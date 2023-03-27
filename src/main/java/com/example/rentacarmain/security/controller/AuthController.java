@@ -1,9 +1,6 @@
 package com.example.rentacarmain.security.controller;
 
-import com.example.rentacarmain.security.dto.AuthenticationRequest;
-import com.example.rentacarmain.security.dto.AuthenticationResponse;
-import com.example.rentacarmain.security.dto.RegisterRequest;
-import com.example.rentacarmain.security.dto.RegistrationResponse;
+import com.example.rentacarmain.security.dto.*;
 import com.example.rentacarmain.security.service.AuthenticationService;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
@@ -28,9 +25,9 @@ public record AuthController(AuthenticationService service) {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-    @GetMapping("/verify")
-    public ResponseEntity<String> verify(@RequestParam(name = "email")@Valid String email, @RequestParam(name = "code") String code){
-        service.verify(email,code);
-        return ResponseEntity.ok("Your account successfully verified.");
+    @PostMapping("/verify")
+    public ResponseEntity<String> verify(@RequestBody VerificationRequest request){
+        service.verify(request.email(),request.code());
+        return ResponseEntity.ok("Hesabınız uğurla təsdiqləndi.");
     }
 }

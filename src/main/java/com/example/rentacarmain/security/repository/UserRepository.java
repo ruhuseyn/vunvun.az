@@ -18,6 +18,8 @@ public interface UserRepository extends JpaRepository<Users,Long> {
     @Transactional
     void deleteUserByEmail(String email);
 
+    boolean existsByEmail(String email);
+
     @Transactional
     @Modifying
     @Query("update users u set u.active = :active where u.email = :email")

@@ -8,6 +8,7 @@ import com.example.rentacarmain.security.dto.RegistrationResponse;
 import com.example.rentacarmain.security.entity.Role;
 import com.example.rentacarmain.security.entity.UserRedisHash;
 import com.example.rentacarmain.security.entity.Users;
+import com.example.rentacarmain.security.exception.EmailAlreadyTakenException;
 import com.example.rentacarmain.security.exception.ExpiredVerificationCodeException;
 import com.example.rentacarmain.security.exception.IncorrectVerificationCodeException;
 import com.example.rentacarmain.security.repository.UserRedisRepository;
@@ -45,6 +46,10 @@ public class AuthenticationService {
 
     public RegistrationResponse register(RegisterRequest request) throws MessagingException, UnsupportedEncodingException {
 
+        if (repository.existsByEmail(request.email())){
+            throw new EmailAlreadyTakenException("Bu email ilə qeydiyyatdan keçilmişdir");
+        }
+
         String verificationCode = UUID.randomUUID().toString();
 
         UserRedisHash userRedisHash = UserRedisHash
@@ -60,7 +65,7 @@ public class AuthenticationService {
 
         return RegistrationResponse
                 .builder()
-                .message("Successfully added. Verification link has been sent to your email : " + request.email())
+                .message("Təsdiqləmə kodu hesabınıza göndərildi : " + request.email())
                 .build();
     }
 
@@ -75,18 +80,19 @@ public class AuthenticationService {
         var user = authService.loadUserByUsername(request.email());
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .userId(repository.findUserByEmail(request.email()).get().getId())
                 .token(jwtToken)
                 .build();
     }
 
     private void sendVerificationEmail(String email, String verificationCode)
             throws MessagingException, UnsupportedEncodingException {
-        String senderName = "RentalHub";
+        String senderName = "VUNVUN.az";
         String subject = "Hesabınızı təsdiqləyin";
         String content = "Əziz istifadəçimiz, <br>"
                 + "Təsdiqləmə linkiniz:<br>"
-                + "<a href=\"https://vunvunn.live/auth/verify?email=[[email]]&code=[[verificationCode]]\"><br>Zəhmət olmasa klikləyin</a>"
-                + "Təşşəkür edirik, "
+                + "<a href=\"http://localhost:3000/verify?email=[[email]]&code=[[verificationCode]]\">Zəhmət olmasa klikləyin</a> <br>"
+                + "Təşəkkür edirik,<br>"
                 + senderName;
 
         MimeMessage message = mailSender.createMimeMessage();
@@ -106,17 +112,17 @@ public class AuthenticationService {
         mailSender.send(message);
     }
 
-    public void verify(@NotBlank @Email String email, String code) {
+    public void verify( String email, String code) {
         UserRedisHash redisHash = redisRepository.getById(email);
         if (redisHash == null || !redisHash.getVerificationCode().equals(code)) {
-            throw new IncorrectVerificationCodeException("Verification code is incorrect!");
+            throw new IncorrectVerificationCodeException("Təsdiqləmə kodu yanlışdır!");
         } else if (!redisHash.getGeneratedDateTime().plusMinutes(15).isAfter(LocalDateTime.now())) {
             redisRepository.deleteById(redisHash.getEmail());
             repository.deleteUserByEmail(email);
             throw new ExpiredVerificationCodeException(
                     """
-                            Verification code is expired.
-                            Please register again!
+                            Təsdiqləme kodu yanlışdır.
+                            Zəhmət olmasa, qeydiyyatdan bir daha keçin!
                             """);
         }
 
