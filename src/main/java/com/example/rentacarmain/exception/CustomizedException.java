@@ -18,4 +18,13 @@ public class CustomizedException extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity(errorDetails, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(MainAlreadyExist.class)
+    public final ResponseEntity<Object> handleAllException2(Exception ex, WebRequest request) throws Exception {
+        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
+                ex.getMessage(),
+                request.getDescription(false));
+
+        return new ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST);
+    }
 }
