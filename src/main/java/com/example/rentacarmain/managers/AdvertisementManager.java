@@ -56,6 +56,7 @@ public class AdvertisementManager implements AdvertisementsService {
                 .title(savedAdv.getModel().getName() + " " + savedAdv.getModel().getBrand().getName())
                 .brandId(savedAdv.getModel().getBrand().getId())
                 .modelId(savedAdv.getModel().getId())
+                .locationId(savedAdv.getLocation().getId())
                 .price(savedAdv.getPrice().intValue())
                 .build();
         elasticsearchService.addAdvertisements(advertisementEs);

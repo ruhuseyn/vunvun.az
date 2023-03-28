@@ -20,11 +20,14 @@ public class AdvertisementEs {
     @Field(type = FieldType.Keyword)
     String title;
 
-   @Field(type = FieldType.Long)
-   Long brandId;
+    @Field(type = FieldType.Long)
+    Long brandId;
 
-   @Field(type = FieldType.Long)
-   Long modelId;
+    @Field(type = FieldType.Long)
+    Long modelId;
+
+    @Field(type = FieldType.Long)
+    Long locationId;
 
     @Field(type = FieldType.Integer)
     Integer price;

@@ -1,5 +1,6 @@
-package com.example.rentacarmain.security.entity;
+package com.example.rentacarmain.entities;
 
+import com.example.rentacarmain.security.entity.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,12 @@ public class Users {
     private String password;
 
     private Boolean active;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     Role role;

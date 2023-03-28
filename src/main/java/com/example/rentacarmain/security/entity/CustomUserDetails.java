@@ -1,5 +1,6 @@
 package com.example.rentacarmain.security.entity;
 
+import com.example.rentacarmain.entities.Users;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
