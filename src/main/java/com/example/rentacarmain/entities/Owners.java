@@ -1,14 +1,11 @@
 package com.example.rentacarmain.entities;
 
-import com.example.rentacarmain.security.entity.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.util.Objects;
 
 @Entity(name = "owners")
 @Data

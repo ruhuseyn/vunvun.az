@@ -1,10 +1,11 @@
 package com.example.rentacarmain.controller.elasticsearch;
 
+import com.example.rentacarmain.dto.FindAdvRequest;
 import com.example.rentacarmain.dto.PageableAdvResponse;
-import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/elasticsearch")
@@ -24,15 +25,13 @@ public record ElasticSearchController(ElasticsearchService service) {
 
     @GetMapping
     public PageableAdvResponse findAdvertisement
-            (@RequestParam(name = "page") int page,
+            (@RequestParam(name = "brand_id",required = false) Long brandId,
+             @RequestParam(name = "location_id",required = false) Long locationId,
+             @RequestParam(name = "model_id",required = false) Long modelId,
+             @RequestParam(name = "page") int page,
              @RequestParam(name = "count") int count){
-        return service.findAdvertisements(page,count);
-    }
 
-    @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public void addAdvertisements(@RequestBody AdvertisementEs advertisementEs){
-        service.addAdvertisements(advertisementEs);
+            return service.findAdvertisements(new FindAdvRequest(brandId, locationId, modelId),page,count);
     }
 
     @DeleteMapping

@@ -1,7 +1,5 @@
 package com.example.rentacarmain.entities;
 
-import com.example.rentacarmain.entities.advertisement.Advertisements;
-import com.example.rentacarmain.security.entity.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.sql.Date;
-import java.util.Objects;
 
 @Entity(name = "reviews")
 @Data

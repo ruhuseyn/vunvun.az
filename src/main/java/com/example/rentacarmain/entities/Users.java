@@ -1,5 +1,6 @@
-package com.example.rentacarmain.security.entity;
+package com.example.rentacarmain.entities;
 
+import com.example.rentacarmain.security.entity.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,11 +25,23 @@ public class Users {
             generator = "user_id_seq")
     private Long id;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "active")
     private Boolean active;
+
+    @Column(name = "budget")
+    private Double budget;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     Role role;

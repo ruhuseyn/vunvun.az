@@ -11,6 +11,8 @@ public record AdvertisementRequest(String description,
                                    LocalDate creationTime,
                                    String motorVolume,
                                   ModelRequest model,
-                                   OwnerRequest owner) {
+                                   OwnerRequest owner,
+
+                                   LocationRequest location) {
 
 }

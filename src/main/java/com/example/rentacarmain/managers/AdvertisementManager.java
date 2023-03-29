@@ -2,62 +2,60 @@ package com.example.rentacarmain.managers;
 
 import com.example.rentacarmain.dto.AdvertisementRequest;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
-import com.example.rentacarmain.entities.advertisement.Brand;
-import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.mapper.AdvertisementMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
+import com.example.rentacarmain.repositories.LocationRepository;
+import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
+@RequiredArgsConstructor
 public class AdvertisementManager implements AdvertisementsService {
 
     private final AdvertisementRepository repository;
     private final AdvertisementMapper mapper;
     private final ElasticsearchService elasticsearchService;
 
-    public AdvertisementManager(AdvertisementRepository repository,
-                                AdvertisementMapper mapper,
-                                ElasticsearchService elasticsearchService) {
-        this.repository = repository;
-        this.mapper = mapper;
-        this.elasticsearchService = elasticsearchService;
-    }
+    private final ModelRepository modelRepository;
 
-    @Override
-    public Advertisements getCarByBrand(Brand brand) {
-        return null;
-    }
+    private final LocationRepository locationRepository;
 
-    @Override
-    public List<Advertisements> getCarsByModel(Model model) {
-        return null;
-    }
+    private static final Logger logger = LoggerFactory.getLogger(AdvertisementManager.class);
 
-    @Override
-    public List<Advertisements> getCarsByLocation(Location location) {
-        return null;
-    }
 
     @Override
     public void addAdvertisement(AdvertisementRequest request) {
+        logger.debug("Advertisements added");
         Advertisements advertisements = mapper.advRequestToAdv(request);
 
         Advertisements savedAdv = repository.save(advertisements);
 
+        Model model = modelRepository.findById(request.model().id()).get();
+
         AdvertisementEs advertisementEs = AdvertisementEs
                 .builder()
                 .id(savedAdv.getId())
-                .title(savedAdv.getModel().getName() + " " + savedAdv.getModel().getBrand().getName())
-                .brandId(savedAdv.getModel().getBrand().getId())
-                .modelId(savedAdv.getModel().getId())
+                .title(
+                        model.getBrand().getName()
+                        +
+                        " "
+                        + model.getName() )
+                .brandId(model.getBrand().getId())
+                .modelId(model.getId())
+                .locationId(request.location().id())
                 .price(savedAdv.getPrice().intValue())
                 .build();
         elasticsearchService.addAdvertisements(advertisementEs);
     }
 }
+
+

@@ -1,6 +1,7 @@
 package com.example.rentacarmain.repositories.elasticsearch;
 
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.annotations.Query;
@@ -20,5 +21,12 @@ public interface ElasticSearchRepo extends ElasticsearchRepository<Advertisement
 //    @Query("{\"match\": {\"title\": {\"query\": \"?0\",\"fuzziness\": \"1\", \"operator\": \"or\"}}}")
     @Query("{\"multi_match\": {\"query\": \"?0\", \"fields\": [\"title\"], \"fuzziness\": \"AUTO\"}}")
     Page<AdvertisementEs> justFind(@Param(value = "title") String title, Pageable pageable);
+
+
+    Page<AdvertisementEs> findAllByLocationId(Long locationId,Pageable pageable);
+    Page<AdvertisementEs> findAllByBrandId(Long brandId,Pageable pageable);
+
+
+
 
 }

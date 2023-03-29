@@ -1,6 +1,6 @@
 package com.example.rentacarmain.security.repository;
 
-import com.example.rentacarmain.security.entity.Users;
+import com.example.rentacarmain.entities.Users;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -17,6 +17,8 @@ public interface UserRepository extends JpaRepository<Users,Long> {
 
     @Transactional
     void deleteUserByEmail(String email);
+
+    boolean existsByEmail(String email);
 
     @Transactional
     @Modifying
