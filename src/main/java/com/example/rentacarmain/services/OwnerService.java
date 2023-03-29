@@ -8,4 +8,6 @@ public interface OwnerService{
     OwnerResponse getOwnerById(Long id);
 
     void addOwner(OwnerResponse ownerResponse);
+
+    OwnerResponse getOwnerByUserId(Long id);
 }

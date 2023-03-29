@@ -21,4 +21,9 @@ public class OwnerController {
     public void addOwner(@RequestBody OwnerResponse ownerResponse){
         ownerManager.addOwner(ownerResponse);
     }
+
+    @GetMapping("/user/{id}")
+    public OwnerResponse getOwnerByUserId(Long id){
+        return ownerManager.getOwnerByUserId(id);
+    }
 }

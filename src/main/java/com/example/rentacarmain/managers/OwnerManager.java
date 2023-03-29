@@ -27,4 +27,11 @@ public class OwnerManager implements OwnerService {
         ownerRepository.save(advertisementMapper.ownerResponseToOwner(ownerResponse));
     }
 
+    @Override
+    public OwnerResponse getOwnerByUserId(Long id) {
+        Owners owners = ownerRepository.findOwnersByUserId(id);
+
+        return null;
+    }
+
 }
