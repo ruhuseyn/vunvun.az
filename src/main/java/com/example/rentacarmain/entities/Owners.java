@@ -1,5 +1,6 @@
 package com.example.rentacarmain.entities;
 
+import com.example.rentacarmain.entities.advertisement.Location;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,6 @@ public class Owners {
             strategy = GenerationType.SEQUENCE,
             generator = "owner_id_seq")
     Long id;
-
-//    @Column(name = "image")
-//    Byte[] hostImage;
 
     @Column(name = "phone_number")
     String phoneNumber;
