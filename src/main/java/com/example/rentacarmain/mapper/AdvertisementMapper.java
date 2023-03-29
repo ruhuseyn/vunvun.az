@@ -1,6 +1,7 @@
 package com.example.rentacarmain.mapper;
 
 import com.example.rentacarmain.dto.AdvertisementRequest;
+import com.example.rentacarmain.dto.AdvertisementResponse;
 import com.example.rentacarmain.dto.ModelRequest;
 import com.example.rentacarmain.dto.OwnerRequest;
 import com.example.rentacarmain.entities.Owners;
@@ -17,5 +18,7 @@ public interface AdvertisementMapper {
     Model modelRequestToModel(ModelRequest modelRequest);
 
     Owners ownerRequestToOwners(OwnerRequest ownerRequest);
+
+    AdvertisementResponse advToAdvResponse(Advertisements advertisements);
 
 }

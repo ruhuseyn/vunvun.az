@@ -63,7 +63,9 @@ public class AdvertisementManager implements AdvertisementsService {
     public AdvertisementResponse getAdvertisementById(Long id) {
         Advertisements advertisements = repository.findById(id)
                 .orElseThrow(()-> new AdvertisementNotFoundException("Advertisement is not found" + id));
-        return null;
+
+        return mapper.advToAdvResponse(advertisements);
+
     }
 
 }
