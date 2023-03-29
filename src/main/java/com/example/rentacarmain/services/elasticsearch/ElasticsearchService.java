@@ -1,6 +1,7 @@
 package com.example.rentacarmain.services.elasticsearch;
 
 import com.example.rentacarmain.dto.AllAdvResponse;
+import com.example.rentacarmain.dto.FindAdvRequest;
 import com.example.rentacarmain.dto.PageableAdvResponse;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.repositories.elasticsearch.ElasticSearchRepo;
@@ -22,13 +23,26 @@ public class ElasticsearchService {
 
     Logger logger = LoggerFactory.getLogger(ElasticsearchService.class);
 
-    public PageableAdvResponse findAdvertisements(int page, int count) {
+    public PageableAdvResponse findAdvertisements(FindAdvRequest request, int page, int count) {
         logger.info("get all payments started");
 
         var pageRequest = PageRequest.of(page, count);
-        Page<AdvertisementEs> esPage = elasticSearchRepo.findAll(pageRequest);
+        PageableAdvResponse response = null;
+        if (request == null){
+            Page<AdvertisementEs> esPage = elasticSearchRepo.findAll(pageRequest);
+            response = getPageableAdvResponse(esPage);
+        }else if (request.locationId() != null){
+            Page<AdvertisementEs> allByLocationId = elasticSearchRepo.findAllByLocationId(request.locationId(), pageRequest);
+            response = getPageableAdvResponse(allByLocationId);
+        } else if (request.brandId() != null) {
+            Page<AdvertisementEs> allByBrandId = elasticSearchRepo.findAllByBrandId(request.brandId(), pageRequest);
+            response = getPageableAdvResponse(allByBrandId);
+        }else {
+            Page<AdvertisementEs> esPage = elasticSearchRepo.findAll(pageRequest);
+            response = getPageableAdvResponse(esPage);
+        }
 
-        return getPageableAdvResponse(esPage);
+        return response;
     }
 
     public void addAdvertisements(AdvertisementEs advertisementEs) {

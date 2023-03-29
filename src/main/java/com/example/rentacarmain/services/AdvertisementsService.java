@@ -10,12 +10,5 @@ import java.util.List;
 
 public interface AdvertisementsService {
 
-    Advertisements getCarByBrand(Brand brand);
-
-    List<Advertisements> getCarsByModel(Model model);
-
-    List<Advertisements> getCarsByLocation(Location location);
-
-
     void addAdvertisement(AdvertisementRequest request);
 }

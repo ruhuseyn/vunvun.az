@@ -23,20 +23,5 @@ public record AdvertisementController(AdvertisementManager manager) {
         return "Ugurla elave edildi";
     }
 
-    @GetMapping("/brand")
-    public Advertisements getCarByBrand(@RequestParam Brand brand) {
 
-
-        return manager.getCarByBrand(brand);
-    }
-
-    @GetMapping("/model")
-    public List<Advertisements> getCarsByModel(@RequestParam Model model) {
-        return manager.getCarsByModel(model);
-    }
-
-    @GetMapping("/location")
-    public List<Advertisements> getCarsByLocation(@RequestParam Location location) {
-        return manager.getCarsByLocation(location);
-    }
 }

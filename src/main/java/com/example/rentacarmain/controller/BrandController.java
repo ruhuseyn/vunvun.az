@@ -8,11 +8,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/brands")
+@CrossOrigin(origins = "*")
 public record BrandController(BrandRepository repository) {
 
     @GetMapping
     public List<Brand> getAll(){
         return repository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Brand getById(@PathVariable(name = "id") Long id ){
+        return repository.findById(id).get();
     }
 
     @PostMapping

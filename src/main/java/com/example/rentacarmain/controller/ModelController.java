@@ -2,10 +2,7 @@ package com.example.rentacarmain.controller;
 
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.repositories.ModelRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +20,9 @@ public record ModelController(ModelRepository repository) {
         return repository.findAll();
     }
 
+    @PostMapping
+    public void add(@RequestBody Model model){
+        repository.save(model);
+
+    }
 }
