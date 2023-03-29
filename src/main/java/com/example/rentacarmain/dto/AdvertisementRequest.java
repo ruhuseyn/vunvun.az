@@ -12,7 +12,6 @@ public record AdvertisementRequest(String description,
                                    String motorVolume,
                                   ModelRequest model,
                                    OwnerRequest owner,
-
                                    LocationRequest location) {
 
 }

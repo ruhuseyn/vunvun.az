@@ -1,9 +1,11 @@
 package com.example.rentacarmain.managers;
 
 import com.example.rentacarmain.dto.AdvertisementRequest;
+import com.example.rentacarmain.dto.AdvertisementResponse;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
+import com.example.rentacarmain.exception.subexceptions.AdvertisementNotFoundException;
 import com.example.rentacarmain.mapper.AdvertisementMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
 import com.example.rentacarmain.repositories.LocationRepository;
@@ -56,6 +58,14 @@ public class AdvertisementManager implements AdvertisementsService {
                 .build();
         elasticsearchService.addAdvertisements(advertisementEs);
     }
+
+    @Override
+    public AdvertisementResponse getAdvertisementById(Long id) {
+        Advertisements advertisements = repository.findById(id)
+                .orElseThrow(()-> new AdvertisementNotFoundException("Advertisement is not found" + id));
+        return null;
+    }
+
 }
 
 
