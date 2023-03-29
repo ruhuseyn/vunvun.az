@@ -29,9 +29,9 @@ public class OwnerManager implements OwnerService {
 
     @Override
     public OwnerResponse getOwnerByUserId(Long id) {
-        Owners owners = ownerRepository.findOwnersByUserId(id);
-
-        return null;
+        Owners owners = ownerRepository.findOwnersByUserId(id)
+                .orElseThrow(()->new OwnerNotFoundException("Owner is not found "+id));;
+        return advertisementMapper.ownerToOwnerResponse(owners);
     }
 
 }

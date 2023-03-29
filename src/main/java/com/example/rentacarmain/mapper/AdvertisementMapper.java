@@ -23,6 +23,10 @@ public interface AdvertisementMapper {
     List<ModelRequestReviews> modelToModelReviewsList(List<Model> models);
 
     OwnerResponse ownerToOwnerResponse(Owners owners);
+
     Owners ownerResponseToOwner(OwnerResponse ownerResponse);
+
+
+
 
 }
