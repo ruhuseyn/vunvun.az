@@ -1,4 +1,4 @@
-package com.example.rentacarmain.exception;
+package com.example.rentacarmain.exception.superexeptions;
 
 public class MainAlreadyExist extends RuntimeException{
 
