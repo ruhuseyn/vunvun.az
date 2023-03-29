@@ -25,11 +25,17 @@ public class Users {
             generator = "user_id_seq")
     private Long id;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "active")
     private Boolean active;
+
+    @Column(name = "budget")
+    private Double budget;
 
     @Column(name = "first_name")
     private String firstName;

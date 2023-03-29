@@ -11,7 +11,11 @@ import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor
@@ -25,9 +29,12 @@ public class AdvertisementManager implements AdvertisementsService {
 
     private final LocationRepository locationRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(AdvertisementManager.class);
+
 
     @Override
     public void addAdvertisement(AdvertisementRequest request) {
+        logger.debug("Advertisements added");
         Advertisements advertisements = mapper.advRequestToAdv(request);
 
         Advertisements savedAdv = repository.save(advertisements);
