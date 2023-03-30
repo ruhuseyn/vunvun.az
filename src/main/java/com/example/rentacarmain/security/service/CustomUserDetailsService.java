@@ -3,7 +3,7 @@ package com.example.rentacarmain.security.service;
 import com.example.rentacarmain.security.entity.CustomUserDetails;
 import com.example.rentacarmain.entities.Users;
 import com.example.rentacarmain.security.exception.IncorrectEmailException;
-import com.example.rentacarmain.security.repository.UserRepository;
+import com.example.rentacarmain.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

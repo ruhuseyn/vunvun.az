@@ -12,7 +12,7 @@ import com.example.rentacarmain.security.exception.EmailAlreadyTakenException;
 import com.example.rentacarmain.security.exception.ExpiredVerificationCodeException;
 import com.example.rentacarmain.security.exception.IncorrectVerificationCodeException;
 import com.example.rentacarmain.security.repository.UserRedisRepository;
-import com.example.rentacarmain.security.repository.UserRepository;
+import com.example.rentacarmain.repositories.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
