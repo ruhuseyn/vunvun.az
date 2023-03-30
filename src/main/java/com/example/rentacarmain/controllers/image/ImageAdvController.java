@@ -13,6 +13,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/advimage")
+@CrossOrigin(origins = "*")
 public class ImageAdvController {
     private final ImageAdvManager imageAdvManager;
 
