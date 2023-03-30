@@ -1,8 +1,10 @@
 package com.example.rentacarmain.managers.image;
 
+
+import com.example.rentacarmain.entities.image.ImageAdv;
 import com.example.rentacarmain.entities.image.ImageUser;
 import com.example.rentacarmain.exception.subexceptions.ImageNotFoundException;
-import com.example.rentacarmain.repositories.image.ImageUserRepository;
+import com.example.rentacarmain.repositories.image.ImageAdvRepository;
 import com.example.rentacarmain.services.image.ImageService;
 import com.example.rentacarmain.util.ImageUtil;
 import jakarta.transaction.Transactional;
@@ -15,25 +17,23 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ImageUserManager implements ImageService {
+public class ImageAdvManager implements ImageService {
 
-    private final ImageUserRepository imageUserRepository;
-
-
+    private final ImageAdvRepository imageAdvRepository;
     @Override
     @Transactional
     public byte[] getImage(Long id) {
-        Optional<ImageUser> dbImage = imageUserRepository.findImageUserByUserId(id);
+        Optional<ImageAdv> dbImage = imageAdvRepository.findImageAdvByAdvId(id);
         return ImageUtil.decompressImage(dbImage
-                .orElseThrow(() -> new ImageNotFoundException("Image not found for id : " + id))
+                .orElseThrow(() -> new ImageNotFoundException("AdvImage not found for id : " + id))
                 .getImageData());
     }
 
     @Override
     public void uploadImage(Long id, MultipartFile file) throws IOException {
 
-        imageUserRepository.save(
-                new ImageUser(null,id,
+        imageAdvRepository.save(
+                new ImageAdv(null,id,
                         file.getContentType(),
                         ImageUtil.compressImage(file.getBytes())));
 
