@@ -3,6 +3,7 @@ package com.example.rentacarmain.repositories.elasticsearch;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
@@ -27,6 +28,5 @@ public interface ElasticSearchRepo extends ElasticsearchRepository<Advertisement
     Page<AdvertisementEs> findAllByBrandId(Long brandId,Pageable pageable);
 
 
-
-
+    Page<AdvertisementEs> findAllByBrandIdAndLocationId(Long brandId, Long locationId, PageRequest pageRequest);
 }

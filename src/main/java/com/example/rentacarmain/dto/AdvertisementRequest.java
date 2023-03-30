@@ -10,9 +10,8 @@ public record AdvertisementRequest(String description,
                                    BigDecimal price,
                                    LocalDate creationTime,
                                    String motorVolume,
-                                  ModelRequest model,
+                                   ModelRequest model,
                                    OwnerRequest owner,
-
                                    LocationRequest location) {
 
 }

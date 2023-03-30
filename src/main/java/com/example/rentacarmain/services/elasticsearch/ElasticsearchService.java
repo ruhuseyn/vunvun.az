@@ -28,17 +28,32 @@ public class ElasticsearchService {
 
         var pageRequest = PageRequest.of(page, count);
         PageableAdvResponse response = null;
-        if (request == null){
-            Page<AdvertisementEs> esPage = elasticSearchRepo.findAll(pageRequest);
+        if (request.brandId() != null && request.locationId() != null) {
+            Page<AdvertisementEs> esPage = elasticSearchRepo
+                    .findAllByBrandIdAndLocationId(
+                            request.brandId(),
+                            request.locationId(),
+                            pageRequest);
+
             response = getPageableAdvResponse(esPage);
-        }else if (request.locationId() != null){
-            Page<AdvertisementEs> allByLocationId = elasticSearchRepo.findAllByLocationId(request.locationId(), pageRequest);
+        } else if (request.locationId() != null) {
+            Page<AdvertisementEs> allByLocationId = elasticSearchRepo
+                    .findAllByLocationId(
+                            request.locationId(),
+                            pageRequest);
+
             response = getPageableAdvResponse(allByLocationId);
         } else if (request.brandId() != null) {
-            Page<AdvertisementEs> allByBrandId = elasticSearchRepo.findAllByBrandId(request.brandId(), pageRequest);
+            Page<AdvertisementEs> allByBrandId = elasticSearchRepo
+                    .findAllByBrandId(
+                            request.brandId(),
+                            pageRequest);
+
             response = getPageableAdvResponse(allByBrandId);
-        }else {
-            Page<AdvertisementEs> esPage = elasticSearchRepo.findAll(pageRequest);
+        } else {
+            Page<AdvertisementEs> esPage = elasticSearchRepo
+                    .findAll(pageRequest);
+
             response = getPageableAdvResponse(esPage);
         }
 
