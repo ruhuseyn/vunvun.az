@@ -1,8 +1,8 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dto.UserResponse;
-import com.example.rentacarmain.exception.subexceptions.UserNotFoundException;
-import com.example.rentacarmain.mapper.UserMapper;
+import com.example.rentacarmain.dtos.UserResponse;
+import com.example.rentacarmain.exceptions.subexceptions.UserNotFoundException;
+import com.example.rentacarmain.mappers.UserMapper;
 import com.example.rentacarmain.repositories.UserRepository;
 import com.example.rentacarmain.services.UserService;
 import lombok.RequiredArgsConstructor;

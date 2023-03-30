@@ -1,7 +1,6 @@
 package com.example.rentacarmain.services;
 
-import com.example.rentacarmain.dto.UserResponse;
-import com.example.rentacarmain.entities.Users;
+import com.example.rentacarmain.dtos.UserResponse;
 
 public interface UserService {
 

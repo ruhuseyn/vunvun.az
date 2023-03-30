@@ -1,7 +1,6 @@
 package com.example.rentacarmain.services;
 
-import com.example.rentacarmain.dto.OwnerResponse;
-import com.example.rentacarmain.entities.Owners;
+import com.example.rentacarmain.dtos.OwnerResponse;
 
 public interface OwnerService{
 
