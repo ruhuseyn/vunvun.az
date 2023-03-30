@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 @Entity(name = "brand")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)

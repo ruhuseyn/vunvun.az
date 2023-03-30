@@ -17,7 +17,6 @@ public interface AllStructuredMapper {
     Model modelRequestToModel(ModelRequest modelRequest);
 
 
-
     AdvertisementResponse advToAdvResponse(Advertisements advertisements);
 
     List<ModelRequestReviews> modelToModelReviewsList(List<Model> models);
