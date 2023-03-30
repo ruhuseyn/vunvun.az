@@ -1,4 +1,4 @@
-package com.example.rentacarmain.repositories;
+package com.example.rentacarmain.repositories.image;
 
 import org.springframework.stereotype.Repository;
 
