@@ -1,4 +1,4 @@
-package com.example.rentacarmain.security.repository;
+package com.example.rentacarmain.repositories;
 
 import com.example.rentacarmain.entities.Users;
 import jakarta.transaction.Transactional;
@@ -24,5 +24,6 @@ public interface UserRepository extends JpaRepository<Users,Long> {
     @Modifying
     @Query("update users u set u.active = :active where u.email = :email")
     void activateByEmail(@Param("active") boolean active,@Param("email") String email);
+
 
 }
