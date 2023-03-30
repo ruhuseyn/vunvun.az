@@ -1,5 +1,6 @@
 package com.example.rentacarmain.security.service;
 
+import com.example.rentacarmain.repositories.OwnerRepository;
 import com.example.rentacarmain.security.config.JwtService;
 import com.example.rentacarmain.security.dto.AuthenticationRequest;
 import com.example.rentacarmain.security.dto.AuthenticationResponse;
@@ -13,6 +14,7 @@ import com.example.rentacarmain.security.exception.ExpiredVerificationCodeExcept
 import com.example.rentacarmain.security.exception.IncorrectVerificationCodeException;
 import com.example.rentacarmain.security.repository.UserRedisRepository;
 import com.example.rentacarmain.repositories.UserRepository;
+import com.example.rentacarmain.services.OwnerService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -39,12 +41,14 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final JavaMailSender mailSender;
 
+    private final OwnerRepository ownerRepository;
+
 
     static final String FROM_ADDRESS = "vega.pro853@gmail.com";
 
     public RegistrationResponse register(RegisterRequest request) throws MessagingException, UnsupportedEncodingException {
 
-        if (repository.existsByEmail(request.email())){
+        if (repository.existsByEmail(request.email())) {
             throw new EmailAlreadyTakenException("Bu email ilə qeydiyyatdan keçilmişdir");
         }
 
@@ -75,11 +79,20 @@ public class AuthenticationService {
                 )
         );
 
+        Long userId = repository.findUserByEmail(request.email()).get().getId();
+
+        boolean isOwner = true;
+
+        if (ownerRepository.findOwnersByUserId(userId).isEmpty()) {
+            isOwner = false;
+        }
+
         var user = authService.loadUserByUsername(request.email());
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
-                .userId(repository.findUserByEmail(request.email()).get().getId())
+                .userId(userId)
                 .token(jwtToken)
+                .isOwner(isOwner)
                 .build();
     }
 
@@ -110,7 +123,7 @@ public class AuthenticationService {
         mailSender.send(message);
     }
 
-    public void verify( String email, String code) {
+    public void verify(String email, String code) {
         UserRedisHash redisHash = redisRepository.getById(email);
         if (redisHash == null || !redisHash.getVerificationCode().equals(code)) {
             throw new IncorrectVerificationCodeException("Təsdiqləmə kodu yanlışdır!");
