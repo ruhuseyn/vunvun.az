@@ -30,7 +30,6 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors()
-                .configurationSource(corsConfigurationSource)
                 .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
@@ -59,8 +58,8 @@ public class SecurityConfiguration {
         configuration.setAllowedMethods(List.of("*"));
         configuration.setAllowedHeaders(List.of("*"));
 
-        source.registerCorsConfiguration("/**",configuration);
+        source.registerCorsConfiguration("/**", configuration);
         return source;
-}
+    }
 
 }

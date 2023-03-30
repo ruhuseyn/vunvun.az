@@ -17,6 +17,8 @@ import java.util.Objects;
 @Entity(name = "advertisement")
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Advertisements {
 
     @Id

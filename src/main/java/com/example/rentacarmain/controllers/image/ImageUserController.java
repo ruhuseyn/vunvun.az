@@ -13,6 +13,7 @@ import java.io.IOException;
 @RequestMapping("/userimage")
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class ImageUserController {
 
     private final ImageUserManager imageUserManager;

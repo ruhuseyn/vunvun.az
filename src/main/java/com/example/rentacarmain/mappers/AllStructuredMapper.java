@@ -16,15 +16,12 @@ public interface AllStructuredMapper {
 
     Model modelRequestToModel(ModelRequest modelRequest);
 
-    Owners ownerRequestToOwners(OwnerRequest ownerRequest);
 
     AdvertisementResponse advToAdvResponse(Advertisements advertisements);
 
     List<ModelRequestReviews> modelToModelReviewsList(List<Model> models);
 
-    OwnerResponse ownerToOwnerResponse(Owners owners);
 
-    Owners ownerResponseToOwner(OwnerResponse ownerResponse);
 
 
 

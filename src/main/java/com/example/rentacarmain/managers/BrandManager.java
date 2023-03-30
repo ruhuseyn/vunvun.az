@@ -34,4 +34,5 @@ public class BrandManager implements BrandService {
         }
         brandRepository.save(brand);
     }
+
 }

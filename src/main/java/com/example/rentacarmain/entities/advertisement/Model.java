@@ -3,10 +3,7 @@ package com.example.rentacarmain.entities.advertisement;
 import com.example.rentacarmain.entities.Reviews;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Model {
 
     @Id
