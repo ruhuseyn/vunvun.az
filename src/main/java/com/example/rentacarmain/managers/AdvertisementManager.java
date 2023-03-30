@@ -1,12 +1,12 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dto.AdvertisementRequest;
-import com.example.rentacarmain.dto.AdvertisementResponse;
+import com.example.rentacarmain.dtos.AdvertisementRequest;
+import com.example.rentacarmain.dtos.AdvertisementResponse;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
-import com.example.rentacarmain.exception.subexceptions.AdvertisementNotFoundException;
-import com.example.rentacarmain.mapper.AdvertisementMapper;
+import com.example.rentacarmain.exceptions.subexceptions.AdvertisementNotFoundException;
+import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
 import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;
@@ -17,14 +17,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor
 public class AdvertisementManager implements AdvertisementsService {
 
     private final AdvertisementRepository repository;
-    private final AdvertisementMapper mapper;
+    private final AllStructuredMapper mapper;
     private final ElasticsearchService elasticsearchService;
 
     private final ModelRepository modelRepository;

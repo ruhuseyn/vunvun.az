@@ -1,12 +1,7 @@
 package com.example.rentacarmain.services;
 
-import com.example.rentacarmain.dto.AdvertisementRequest;
-import com.example.rentacarmain.dto.AdvertisementResponse;
-import com.example.rentacarmain.entities.advertisement.Advertisements;
-import com.example.rentacarmain.entities.advertisement.Brand;
-import com.example.rentacarmain.entities.advertisement.Location;
-import com.example.rentacarmain.entities.advertisement.Model;
-import java.util.List;
+import com.example.rentacarmain.dtos.AdvertisementRequest;
+import com.example.rentacarmain.dtos.AdvertisementResponse;
 
 public interface AdvertisementsService {
 

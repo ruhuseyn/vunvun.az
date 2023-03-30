@@ -5,5 +5,7 @@ import lombok.Builder;
 @Builder
 public record AuthenticationResponse(
         Long userId,
-        String token) {
+        String token,
+        Boolean isOwner
+        ) {
 }

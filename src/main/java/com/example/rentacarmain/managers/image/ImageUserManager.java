@@ -1,10 +1,10 @@
 package com.example.rentacarmain.managers.image;
 
 import com.example.rentacarmain.entities.image.ImageUser;
-import com.example.rentacarmain.exception.subexceptions.ImageNotFoundException;
+import com.example.rentacarmain.exceptions.subexceptions.ImageNotFoundException;
 import com.example.rentacarmain.repositories.image.ImageUserRepository;
 import com.example.rentacarmain.services.image.ImageService;
-import com.example.rentacarmain.util.ImageUtil;
+import com.example.rentacarmain.utils.ImageUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

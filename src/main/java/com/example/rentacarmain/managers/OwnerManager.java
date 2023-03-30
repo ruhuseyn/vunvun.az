@@ -1,9 +1,9 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dto.OwnerResponse;
+import com.example.rentacarmain.dtos.OwnerResponse;
 import com.example.rentacarmain.entities.Owners;
-import com.example.rentacarmain.exception.subexceptions.OwnerNotFoundException;
-import com.example.rentacarmain.mapper.AdvertisementMapper;
+import com.example.rentacarmain.exceptions.subexceptions.OwnerNotFoundException;
+import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.repositories.OwnerRepository;
 import com.example.rentacarmain.services.OwnerService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class OwnerManager implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final AdvertisementMapper advertisementMapper;
+    private final AllStructuredMapper advertisementMapper;
     @Override
     public OwnerResponse getOwnerById(Long id) {
         Owners owners = ownerRepository.findById(id)

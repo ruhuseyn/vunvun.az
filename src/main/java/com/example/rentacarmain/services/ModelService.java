@@ -1,6 +1,6 @@
 package com.example.rentacarmain.services;
 
-import com.example.rentacarmain.dto.ModelRequestReviews;
+import com.example.rentacarmain.dtos.ModelRequestReviews;
 
 import java.util.List;
 

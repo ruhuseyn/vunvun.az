@@ -1,8 +1,8 @@
 package com.example.rentacarmain.managers;
 
 import com.example.rentacarmain.entities.advertisement.Brand;
-import com.example.rentacarmain.exception.subexceptions.BrandAlreadyExistException;
-import com.example.rentacarmain.exception.subexceptions.BrandNotFoundException;
+import com.example.rentacarmain.exceptions.subexceptions.BrandAlreadyExistException;
+import com.example.rentacarmain.exceptions.subexceptions.BrandNotFoundException;
 import com.example.rentacarmain.repositories.BrandRepository;
 import com.example.rentacarmain.services.BrandService;
 import lombok.RequiredArgsConstructor;
