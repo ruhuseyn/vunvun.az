@@ -17,7 +17,6 @@ public class AdvertisementController {
     private final AdvertisementManager advertisementManager;
     private static final Logger logger = LoggerFactory.getLogger(AdvertisementController.class);
 
-
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public Long addAdv(@Valid @RequestBody AdvertisementRequest request){
