@@ -5,7 +5,7 @@ import com.example.rentacarmain.dtos.AdvertisementResponse;
 
 public interface AdvertisementsService {
 
-    void addAdvertisement(AdvertisementRequest request);
+    Long addAdvertisement(AdvertisementRequest request);
 
     AdvertisementResponse getAdvertisementById(Long id);
 

@@ -32,9 +32,9 @@ class OwnerMapperTest {
     void ownerToOwnerResponse() {
         UserRequest userRequest = new UserRequest(1L);
 
-        var owner = Owners.builder().phoneNumber("055-555-55-55").user(Users.builder().id(1L).build()).build();
+        var owner = Owners.builder().id(1L).phoneNumber("055-555-55-55").build();
 
-        var expected = new OwnerResponse("055-555-55-55",userRequest);
+        var expected = new OwnerResponse(1L,"055-555-55-55");
 
         //Act
         OwnerResponse actual = ownerMapper.ownerToOwnerResponse(owner);
@@ -45,11 +45,10 @@ class OwnerMapperTest {
 
     @Test
     void ownerResponseToOwner() {
-        UserRequest userRequest = new UserRequest(1L);
 
-        var ownerResponse = new OwnerResponse("055-555-55-55",userRequest);
+        var ownerResponse = new OwnerResponse(1L,"055-555-55-55");
 
-        var expected =  Owners.builder().phoneNumber("055-555-55-55").user(Users.builder().id(1L).build()).build();
+        var expected =  Owners.builder().id(1L).phoneNumber("055-555-55-55").build();
 
         //Act
         Owners actual = ownerMapper.ownerResponseToOwner(ownerResponse);

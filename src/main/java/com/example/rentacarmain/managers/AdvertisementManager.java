@@ -34,7 +34,7 @@ public class AdvertisementManager implements AdvertisementsService {
 
 
     @Override
-    public void addAdvertisement(AdvertisementRequest request) {
+    public Long addAdvertisement(AdvertisementRequest request) {
         logger.debug("Advertisements added");
         Advertisements advertisements = mapper.advRequestToAdv(request);
 
@@ -56,6 +56,8 @@ public class AdvertisementManager implements AdvertisementsService {
                 .price(savedAdv.getPrice().intValue())
                 .build();
         elasticsearchService.addAdvertisements(advertisementEs);
+
+        return savedAdv.getId();
     }
 
     @Override

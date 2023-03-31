@@ -51,7 +51,7 @@ public class Advertisements {
     @JoinColumn(name = "model_id")
     Model model;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "owner_id")
     Owners owner;
 

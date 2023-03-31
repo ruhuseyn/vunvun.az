@@ -20,10 +20,9 @@ public class AdvertisementController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public String addAdv(@Valid @RequestBody AdvertisementRequest request){
+    public Long addAdv(@Valid @RequestBody AdvertisementRequest request){
         logger.debug("AdvertisementController: addAdv method is called");
-        advertisementManager.addAdvertisement(request);
-        return "Ugurla elave edildi";
+        return advertisementManager.addAdvertisement(request);
     }
 
 

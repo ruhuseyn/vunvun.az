@@ -24,7 +24,7 @@ public class OwnerController {
     }
 
     @GetMapping("/user/{id}")
-    public OwnerResponse getOwnerByUserId(Long id){
+    public OwnerResponse getOwnerByUserId(@PathVariable(name = "id") Long id){
         return ownerManager.getOwnerByUserId(id);
     }
 }
