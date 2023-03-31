@@ -1,11 +1,10 @@
 package com.example.rentacarmain.dtos;
 
-import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
+import jakarta.validation.constraints.NotNull;
 
 
 public record ModelRequest(
-        @NotBlank(message = "Id is mandatory")
+        @NotNull(message = "Id is mandatory")
         Long id
 ) {
 }
