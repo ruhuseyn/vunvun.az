@@ -102,7 +102,7 @@ public class AuthenticationService {
         String subject = "Hesabınızı təsdiqləyin";
         String content = "Əziz istifadəçimiz, <br>"
                 + "Təsdiqləmə linkiniz:<br>"
-                + "<a href=\"http://localhost:3000/verify?email=[[email]]&code=[[verificationCode]]\">Zəhmət olmasa klikləyin</a> <br>"
+                + "<a href=\"https://vunvun.live/verify?email=[[email]]&code=[[verificationCode]]\">Zəhmət olmasa klikləyin</a> <br>"
                 + "Təşəkkür edirik,<br>"
                 + senderName;
 

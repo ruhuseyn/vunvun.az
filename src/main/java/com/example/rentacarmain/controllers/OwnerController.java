@@ -1,6 +1,7 @@
 package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.OwnerResponse;
+import com.example.rentacarmain.entities.Users;
 import com.example.rentacarmain.managers.OwnerManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,11 @@ public class OwnerController {
     @GetMapping("/{id}")
     public OwnerResponse getOwnerById(@PathVariable Long id){
         return ownerManager.getOwnerById(id);
+    }
+
+    @GetMapping("/{id}/user")
+    public Users getOwnerUserById(@PathVariable("id") Long id){
+        return ownerManager.getOwnerUserById(id);
     }
 
     @PostMapping("/add")

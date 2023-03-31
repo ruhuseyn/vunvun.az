@@ -17,6 +17,8 @@ public class ModelManager implements ModelService {
     private final ModelRepository modelRepository;
     private final AllStructuredMapper advertisementMapper;
 
+
+
     @Override
     public List<ModelRequestReviews> getAllReviews() {
         List<Model> modelReviews =  modelRepository.findAll();

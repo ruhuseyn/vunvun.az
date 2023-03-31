@@ -2,12 +2,13 @@ package com.example.rentacarmain.services;
 
 import com.example.rentacarmain.dtos.AdvertisementRequest;
 import com.example.rentacarmain.dtos.AdvertisementResponse;
+import com.example.rentacarmain.dtos.DetailedAdvResponse;
 
 public interface AdvertisementsService {
 
     Long addAdvertisement(AdvertisementRequest request);
 
-    AdvertisementResponse getAdvertisementById(Long id);
+    DetailedAdvResponse getAdvertisementById(Long id);
 
 
 }

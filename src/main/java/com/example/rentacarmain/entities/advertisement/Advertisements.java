@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Fetch;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -43,7 +44,7 @@ public class Advertisements {
     @Column(name = "motor_volume")
     String motorVolume;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id")
     Location location;
 

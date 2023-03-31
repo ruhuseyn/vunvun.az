@@ -5,6 +5,7 @@ import com.example.rentacarmain.exceptions.superexeptions.MainNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -13,7 +14,8 @@ import java.time.LocalDateTime;
 public class CustomizedExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(MainNotFoundException.class)
-    public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) throws Exception {
+    @ResponseStatus(code = HttpStatus.NOT_FOUND)
+    public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
                 ex.getMessage(),
                 request.getDescription(false));
@@ -22,7 +24,7 @@ public class CustomizedExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(MainAlreadyExist.class)
-    public final ResponseEntity<Object> handleAllException2(Exception ex, WebRequest request) throws Exception {
+    public final ResponseEntity<Object> handleAllException2(Exception ex, WebRequest request)  {
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
                 ex.getMessage(),
                 request.getDescription(false));

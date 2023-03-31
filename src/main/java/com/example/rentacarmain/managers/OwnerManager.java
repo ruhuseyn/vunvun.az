@@ -2,6 +2,7 @@ package com.example.rentacarmain.managers;
 
 import com.example.rentacarmain.dtos.OwnerResponse;
 import com.example.rentacarmain.entities.Owners;
+import com.example.rentacarmain.entities.Users;
 import com.example.rentacarmain.exceptions.subexceptions.OwnerNotFoundException;
 import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.mappers.OwnerMapper;
@@ -33,6 +34,14 @@ public class OwnerManager implements OwnerService {
         Owners owners = ownerRepository.findOwnersByUserId(id)
                 .orElseThrow(()->new OwnerNotFoundException("Owner is not found "+id));;
         return ownerMapper.ownerToOwnerResponse(owners);
+    }
+
+    @Override
+    public Users getOwnerUserById(Long id) {
+        return ownerRepository
+                .findById(id)
+                .orElseThrow(()->new OwnerNotFoundException("Owner is not found "+id))
+                .getUser();
     }
 
 }

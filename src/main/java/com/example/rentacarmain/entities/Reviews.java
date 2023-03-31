@@ -1,5 +1,6 @@
 package com.example.rentacarmain.entities;
 
+import com.example.rentacarmain.entities.advertisement.Advertisements;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,10 @@ public class Reviews {
 
     @Column(name = "text")
     private String text;
+
+    @ManyToOne
+    @JoinColumn(name = "advertisement_id")
+    Advertisements advertisements;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

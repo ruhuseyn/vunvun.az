@@ -1,16 +1,21 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dtos.AdvertisementRequest;
-import com.example.rentacarmain.dtos.AdvertisementResponse;
+import com.example.rentacarmain.dtos.*;
+import com.example.rentacarmain.entities.Owners;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
+import com.example.rentacarmain.entities.advertisement.Brand;
+import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.exceptions.subexceptions.AdvertisementNotFoundException;
 import com.example.rentacarmain.mappers.AllStructuredMapper;
+import com.example.rentacarmain.mappers.OwnerMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
 import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
+import com.example.rentacarmain.services.BrandService;
+import com.example.rentacarmain.services.ModelService;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.LoggerFactory;
@@ -26,7 +31,11 @@ public class AdvertisementManager implements AdvertisementsService {
     private final AllStructuredMapper mapper;
     private final ElasticsearchService elasticsearchService;
 
-    private final ModelRepository modelRepository;
+    private final ModelRepository modelService;
+
+    private final OwnerMapper ownerMapper;
+
+    private final BrandService brandService;
 
     private final LocationRepository locationRepository;
 
@@ -40,7 +49,7 @@ public class AdvertisementManager implements AdvertisementsService {
 
         Advertisements savedAdv = repository.save(advertisements);
 
-        Model model = modelRepository.findById(request.model().id()).get();
+        Model model = modelService.findById(request.model().id()).get();
 
         AdvertisementEs advertisementEs = AdvertisementEs
                 .builder()
@@ -61,11 +70,27 @@ public class AdvertisementManager implements AdvertisementsService {
     }
 
     @Override
-    public AdvertisementResponse getAdvertisementById(Long id) {
+    public DetailedAdvResponse getAdvertisementById(Long id) {
         Advertisements advertisements = repository.findById(id)
                 .orElseThrow(()-> new AdvertisementNotFoundException("Advertisement is not found" + id));
 
-        return mapper.advToAdvResponse(advertisements);
+        Model model = advertisements.getModel();
+        Brand brand = model.getBrand();
+        Owners owner = advertisements.getOwner();
+        Location location = advertisements.getLocation();
+
+        System.out.println(advertisements.getLocation().getId());
+
+        return DetailedAdvResponse.builder()
+                .price(advertisements.getPrice())
+                .creationTime(advertisements.getCreationTime())
+                .description(advertisements.getDescription())
+                .motorVolume(advertisements.getMotorVolume())
+                .model(mapper.modelToModelResponse(model))
+                .brand(mapper.brandToBrandResponse(brand))
+                .owner(ownerMapper.ownerToOwnerResponse(owner))
+                .location(mapper.locationToLocationResponse(location))
+                .build();
 
     }
 

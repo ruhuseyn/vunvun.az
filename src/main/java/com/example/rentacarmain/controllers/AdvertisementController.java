@@ -1,6 +1,8 @@
 package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.AdvertisementRequest;
+import com.example.rentacarmain.dtos.AdvertisementResponse;
+import com.example.rentacarmain.dtos.DetailedAdvResponse;
 import com.example.rentacarmain.managers.AdvertisementManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,12 @@ public class AdvertisementController {
     public Long addAdv(@Valid @RequestBody AdvertisementRequest request){
         logger.debug("AdvertisementController: addAdv method is called");
         return advertisementManager.addAdvertisement(request);
+    }
+
+    @GetMapping("/{id}")
+    public DetailedAdvResponse getById(@PathVariable("id") Long id){
+        logger.debug("AdvertisementController: getById method is called");
+        return advertisementManager.getAdvertisementById(id);
     }
 
 
