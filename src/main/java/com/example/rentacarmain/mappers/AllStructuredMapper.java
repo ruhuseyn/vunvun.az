@@ -1,7 +1,12 @@
 package com.example.rentacarmain.mappers;
 
-import com.example.rentacarmain.dtos.*;
-import com.example.rentacarmain.entities.Owners;
+import com.example.rentacarmain.dtos.request.AdvertisementRequest;
+import com.example.rentacarmain.dtos.request.ModelRequest;
+import com.example.rentacarmain.dtos.request.ModelRequestReviews;
+import com.example.rentacarmain.dtos.response.AdvertisementResponse;
+import com.example.rentacarmain.dtos.response.BrandResponse;
+import com.example.rentacarmain.dtos.response.LocationResponse;
+import com.example.rentacarmain.dtos.response.ModelResponse;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.entities.advertisement.Location;

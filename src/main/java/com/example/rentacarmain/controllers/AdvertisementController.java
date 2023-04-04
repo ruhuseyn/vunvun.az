@@ -1,8 +1,7 @@
 package com.example.rentacarmain.controllers;
 
-import com.example.rentacarmain.dtos.AdvertisementRequest;
-import com.example.rentacarmain.dtos.AdvertisementResponse;
-import com.example.rentacarmain.dtos.DetailedAdvResponse;
+import com.example.rentacarmain.dtos.request.AdvertisementRequest;
+import com.example.rentacarmain.dtos.response.DetailedAdvResponse;
 import com.example.rentacarmain.managers.AdvertisementManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

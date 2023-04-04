@@ -1,10 +1,9 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dtos.OwnerResponse;
+import com.example.rentacarmain.dtos.response.OwnerResponse;
 import com.example.rentacarmain.entities.Owners;
 import com.example.rentacarmain.entities.Users;
 import com.example.rentacarmain.exceptions.subexceptions.OwnerNotFoundException;
-import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.mappers.OwnerMapper;
 import com.example.rentacarmain.repositories.OwnerRepository;
 import com.example.rentacarmain.services.OwnerService;

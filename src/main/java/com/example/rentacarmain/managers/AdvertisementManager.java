@@ -1,6 +1,7 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dtos.*;
+import com.example.rentacarmain.dtos.request.AdvertisementRequest;
+import com.example.rentacarmain.dtos.response.DetailedAdvResponse;
 import com.example.rentacarmain.entities.Owners;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Brand;
@@ -15,7 +16,6 @@ import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
 import com.example.rentacarmain.services.BrandService;
-import com.example.rentacarmain.services.ModelService;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dtos.ModelRequestReviews;
+import com.example.rentacarmain.dtos.request.ModelRequestReviews;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.repositories.ModelRepository;

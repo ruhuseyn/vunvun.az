@@ -1,14 +1,11 @@
 package com.example.rentacarmain.mappers;
 
-import com.example.rentacarmain.dtos.OwnerRequest;
-import com.example.rentacarmain.dtos.OwnerResponse;
-import com.example.rentacarmain.dtos.UserRequest;
+import com.example.rentacarmain.dtos.request.OwnerRequest;
+import com.example.rentacarmain.dtos.response.OwnerResponse;
+import com.example.rentacarmain.dtos.request.UserRequest;
 import com.example.rentacarmain.entities.Owners;
-import com.example.rentacarmain.entities.Users;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerMapperTest {
 

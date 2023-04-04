@@ -1,8 +1,8 @@
 package com.example.rentacarmain.services.elasticsearch;
 
-import com.example.rentacarmain.dtos.AllAdvResponse;
-import com.example.rentacarmain.dtos.FindAdvRequest;
-import com.example.rentacarmain.dtos.PageableAdvResponse;
+import com.example.rentacarmain.dtos.response.AllAdvResponse;
+import com.example.rentacarmain.dtos.request.FindAdvRequest;
+import com.example.rentacarmain.dtos.response.PageableAdvResponse;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.repositories.elasticsearch.ElasticSearchRepo;
 import lombok.RequiredArgsConstructor;

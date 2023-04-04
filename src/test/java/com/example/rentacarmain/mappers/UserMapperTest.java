@@ -1,12 +1,9 @@
 package com.example.rentacarmain.mappers;
 
-import co.elastic.clients.elasticsearch.security.User;
-import com.example.rentacarmain.dtos.UserResponse;
+import com.example.rentacarmain.dtos.response.UserResponse;
 import com.example.rentacarmain.entities.Users;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
 

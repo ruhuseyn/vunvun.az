@@ -1,4 +1,4 @@
-package com.example.rentacarmain.dtos;
+package com.example.rentacarmain.dtos.request;
 
 import jakarta.validation.constraints.NotBlank;
 

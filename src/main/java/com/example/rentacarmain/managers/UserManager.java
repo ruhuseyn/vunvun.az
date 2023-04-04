@@ -1,6 +1,6 @@
 package com.example.rentacarmain.managers;
 
-import com.example.rentacarmain.dtos.UserResponse;
+import com.example.rentacarmain.dtos.response.UserResponse;
 import com.example.rentacarmain.exceptions.subexceptions.UserNotFoundException;
 import com.example.rentacarmain.mappers.UserMapper;
 import com.example.rentacarmain.repositories.UserRepository;
