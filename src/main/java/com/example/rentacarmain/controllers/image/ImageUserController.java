@@ -1,6 +1,6 @@
 package com.example.rentacarmain.controllers.image;
 
-import com.example.rentacarmain.managers.image.ImageUserManager;
+import com.example.rentacarmain.serviceImpl.image.ImageUserManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,8 +18,8 @@ public class ImageUserController {
 
     private final ImageUserManager imageUserManager;
 
-    @GetMapping("/{productId}")
-    public ResponseEntity<?> getImageByName(@PathVariable("productId") Long id){
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getImageByName(@PathVariable("userId") Long id){
         byte[] image = imageUserManager.getImage(id);
 
         return ResponseEntity.status(HttpStatus.OK)
@@ -27,8 +27,9 @@ public class ImageUserController {
                 .body(image);
     }
 
-    @PostMapping("/{productId}")
-    public ResponseEntity<Void> saveImage(@PathVariable("productId") Long id, MultipartFile image) throws IOException {
+    @PostMapping("/{userId}")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public ResponseEntity<Void> saveImage(@PathVariable("userId") Long id, MultipartFile image) throws IOException {
         imageUserManager.uploadImage(id,image);
         return ResponseEntity.ok().build();
     }

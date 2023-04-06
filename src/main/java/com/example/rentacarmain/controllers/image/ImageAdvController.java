@@ -1,6 +1,6 @@
 package com.example.rentacarmain.controllers.image;
 
-import com.example.rentacarmain.managers.image.ImageAdvManager;
+import com.example.rentacarmain.serviceImpl.image.ImageAdvManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,6 +27,7 @@ public class ImageAdvController {
     }
 
     @PostMapping("/{advid}")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public ResponseEntity<Void> saveImage(@PathVariable("advid") Long id, MultipartFile image) throws IOException {
         imageAdvManager.uploadImage(id,image);
         return ResponseEntity.ok().build();

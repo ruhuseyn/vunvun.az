@@ -1,14 +1,11 @@
 package com.example.rentacarmain.mappers;
 
-import com.example.rentacarmain.dtos.OwnerRequest;
-import com.example.rentacarmain.dtos.OwnerResponse;
-import com.example.rentacarmain.dtos.UserRequest;
+import com.example.rentacarmain.dtos.owner.OwnerRequest;
+import com.example.rentacarmain.dtos.owner.OwnerResponse;
+import com.example.rentacarmain.dtos.user.PatchUserRequest;
 import com.example.rentacarmain.entities.Owners;
-import com.example.rentacarmain.entities.Users;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerMapperTest {
 
@@ -30,7 +27,7 @@ class OwnerMapperTest {
 
     @Test
     void ownerToOwnerResponse() {
-        UserRequest userRequest = new UserRequest(1L);
+//        PatchUserRequest patchUserRequest = new PatchUserRequest(1L);
 
         var owner = Owners.builder().id(1L).phoneNumber("055-555-55-55").build();
 

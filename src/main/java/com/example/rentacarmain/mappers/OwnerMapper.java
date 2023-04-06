@@ -1,7 +1,7 @@
 package com.example.rentacarmain.mappers;
 
-import com.example.rentacarmain.dtos.OwnerRequest;
-import com.example.rentacarmain.dtos.OwnerResponse;
+import com.example.rentacarmain.dtos.owner.OwnerRequest;
+import com.example.rentacarmain.dtos.owner.OwnerResponse;
 import com.example.rentacarmain.entities.Owners;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;

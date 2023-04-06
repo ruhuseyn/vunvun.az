@@ -1,7 +1,7 @@
 package com.example.rentacarmain.controllers.elasticsearch;
 
-import com.example.rentacarmain.dtos.FindAdvRequest;
-import com.example.rentacarmain.dtos.PageableAdvResponse;
+import com.example.rentacarmain.dtos.adv.FindAdvRequest;
+import com.example.rentacarmain.dtos.adv.PageableAdvResponse;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,12 +1,16 @@
 package com.example.rentacarmain.mappers;
 
 import com.example.rentacarmain.dtos.*;
+import com.example.rentacarmain.dtos.adv.AdvertisementRequest;
+import com.example.rentacarmain.dtos.adv.AdvertisementResponse;
+import com.example.rentacarmain.dtos.location.LocationRequest;
+import com.example.rentacarmain.dtos.model.ModelRequest;
+import com.example.rentacarmain.dtos.model.ModelRequestReviews;
+import com.example.rentacarmain.dtos.owner.OwnerRequest;
 import com.example.rentacarmain.entities.Owners;
 import com.example.rentacarmain.entities.advertisement.Advertisements;
 import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
-import lombok.RequiredArgsConstructor;
-import net.bytebuddy.matcher.StringMatcher;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +18,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class AllStructuredMapperTest {
 

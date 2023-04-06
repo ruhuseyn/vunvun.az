@@ -1,9 +1,8 @@
 package com.example.rentacarmain.controllers;
 
-import com.example.rentacarmain.dtos.AdvertisementRequest;
-import com.example.rentacarmain.dtos.AdvertisementResponse;
-import com.example.rentacarmain.dtos.DetailedAdvResponse;
-import com.example.rentacarmain.managers.AdvertisementManager;
+import com.example.rentacarmain.dtos.adv.AdvertisementRequest;
+import com.example.rentacarmain.dtos.adv.DetailedAdvResponse;
+import com.example.rentacarmain.serviceImpl.AdvertisementManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
