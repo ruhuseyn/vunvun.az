@@ -18,4 +18,9 @@ public record AdminController(AdminManager adminManager) {
     public void deleteUserById(@PathVariable Long id){
         adminManager.deleteUserById(id);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteUserByIdAAndName(@PathVariable Long id){
+        adminManager.deleteUserById(id);
+    }
 }
