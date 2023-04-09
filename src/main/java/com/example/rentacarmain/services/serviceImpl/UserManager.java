@@ -1,11 +1,11 @@
-package com.example.rentacarmain.serviceImpl;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.user.PatchUserRequest;
 import com.example.rentacarmain.dtos.user.UserRequest;
 import com.example.rentacarmain.dtos.user.UserResponse;
 import com.example.rentacarmain.entities.Users;
 import com.example.rentacarmain.exceptions.subexceptions.UserNotFoundException;
-import com.example.rentacarmain.mappers.UserMapper;
+import com.example.rentacarmain.dtos.mappers.UserMapper;
 import com.example.rentacarmain.repositories.UserRepository;
 import com.example.rentacarmain.services.UserService;
 import lombok.RequiredArgsConstructor;

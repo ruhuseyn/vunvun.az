@@ -2,11 +2,9 @@ package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.user.PatchUserRequest;
 import com.example.rentacarmain.dtos.user.UserResponse;
-import com.example.rentacarmain.serviceImpl.UserManager;
-import lombok.RequiredArgsConstructor;
+import com.example.rentacarmain.services.serviceImpl.UserManager;
 import org.springframework.web.bind.annotation.*;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
 public record UserController(
