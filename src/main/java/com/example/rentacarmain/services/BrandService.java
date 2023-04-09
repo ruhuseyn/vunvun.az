@@ -1,5 +1,6 @@
 package com.example.rentacarmain.services;
 
+import com.example.rentacarmain.dtos.brand.BrandDTO;
 import com.example.rentacarmain.entities.advertisement.Brand;
 
 import java.util.List;
@@ -8,8 +9,10 @@ public interface BrandService {
 
      List<Brand> getAll();
 
-     Brand getById(Long id);
+     BrandDTO getById(Long id);
 
-     void addBrand(Brand brand);
+     void add(BrandDTO brand);
+
+     void deleteById(Long id);
 
 }

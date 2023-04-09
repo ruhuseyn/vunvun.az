@@ -1,5 +1,6 @@
 package com.example.rentacarmain.dtos.adv;
 
+import com.example.rentacarmain.dtos.brand.BrandDTO;
 import com.example.rentacarmain.dtos.location.LocationResponse;
 import com.example.rentacarmain.dtos.model.ModelResponse;
 import com.example.rentacarmain.dtos.owner.OwnerResponse;
@@ -13,10 +14,9 @@ public record DetailedAdvResponse(
         String description,
         BigDecimal price,
         LocalDate creationTime,
-        String motorVolume,
         OwnerResponse owner,
         ModelResponse model,
         LocationResponse location,
-        BrandResponse brand
+        BrandDTO brand
 ) {
 }

@@ -1,8 +1,10 @@
 package com.example.rentacarmain.serviceImpl;
 
+import com.example.rentacarmain.dtos.brand.BrandDTO;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.exceptions.subexceptions.BrandAlreadyExistException;
 import com.example.rentacarmain.exceptions.subexceptions.BrandNotFoundException;
+import com.example.rentacarmain.mappers.BrandMapper;
 import com.example.rentacarmain.repositories.BrandRepository;
 import com.example.rentacarmain.services.BrandService;
 import lombok.RequiredArgsConstructor;
@@ -14,25 +16,33 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BrandManager implements BrandService {
 
-    private final BrandRepository brandRepository;
+    private final BrandRepository repository;
+
+    private final BrandMapper mapper;
 
     @Override
     public List<Brand> getAll() {
-        return brandRepository.findAll();
+        return repository.findAll();
     }
 
     @Override
-    public Brand getById(Long id) {
-        return brandRepository.findById(id)
+    public BrandDTO getById(Long id) {
+        return repository.findById(id)
+                .map(mapper::toBrandDTO)
                 .orElseThrow(()->new BrandNotFoundException("Brand is not found "+id));
     }
 
     @Override
-    public void addBrand(Brand brand) {
-        if(brandRepository.existsByName(brand.getName())){
-            throw new BrandAlreadyExistException("Brand is already exist " + brand);
+    public void add(BrandDTO request) {
+        if(repository.existsByName(request.name())){
+            throw new BrandAlreadyExistException("Brand is already exist " + request);
         }
-        brandRepository.save(brand);
+        repository.save(mapper.fromBrandDTO(request));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
     }
 
 }

@@ -17,11 +17,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserRepository service;
+    private final UserRepository repository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<Users> user = service.findUserByEmail(email);
+        Optional<Users> user = repository.findUserByEmail(email);
         return user.map(CustomUserDetails::new).orElseThrow(() -> new IncorrectEmailException("Email və ya şifrə yanlışdır!"));
     }
 }

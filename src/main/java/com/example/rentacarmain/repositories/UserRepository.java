@@ -20,6 +20,13 @@ public interface UserRepository extends JpaRepository<Users,Long> {
 
     boolean existsByEmail(String email);
 
+    @Query("update users set active = true")
+    void activateById(Long id);
+
+    @Query("update users set active = false")
+    void deactivateById(Long id);
+
+
     @Transactional
     @Modifying
     @Query("update users u set u.active = :active where u.email = :email")

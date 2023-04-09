@@ -1,11 +1,10 @@
 package com.example.rentacarmain.controllers;
 
-import com.example.rentacarmain.dtos.brand.BrandRequest;
+import com.example.rentacarmain.dtos.brand.BrandDTO;
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.mappers.AllStructuredMapper;
 import com.example.rentacarmain.repositories.BrandRepository;
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
+import com.example.rentacarmain.services.BrandService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,23 +13,18 @@ import java.util.List;
 @RequestMapping("/brands")
 @CrossOrigin(origins = "*")
 public record BrandController(
-        BrandRepository repository,
-        AllStructuredMapper mapper) {
+        BrandService service) {
 
     @GetMapping
     public List<Brand> getAll(){
-        return repository.findAll();
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Brand getById(@PathVariable(name = "id")  Long id ){
-        return repository.findById(id).get();
+    public BrandDTO getById(@PathVariable(name = "id")  Long id ){
+        return service.getById(id);
     }
 
-    @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@Valid @RequestBody BrandRequest brand){
-        repository.save(mapper.brandRequestToBrand(brand));
-    }
+
 
 }

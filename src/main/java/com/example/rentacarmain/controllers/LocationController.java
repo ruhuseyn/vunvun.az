@@ -1,30 +1,26 @@
 package com.example.rentacarmain.controllers;
 
+import com.example.rentacarmain.dtos.location.LocationResponse;
 import com.example.rentacarmain.entities.advertisement.Location;
-import com.example.rentacarmain.repositories.LocationRepository;
-import jakarta.validation.Valid;
+import com.example.rentacarmain.services.LocationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/locations")
-@CrossOrigin(origins = "*")
-public record LocationController(LocationRepository repository) {
+public record LocationController(LocationService service) {
 
     @GetMapping
     public List<Location> getAll() {
-        return repository.findAll();
+        return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Location getById(@PathVariable("id") Long id) {
-        return repository.findById(id).get();
+    public LocationResponse getById(@PathVariable("id") Long id) {
+        return service.findById(id);
     }
 
-    @PostMapping
-    public void add(@Valid @RequestBody Location location) {
-        repository.save(location);
-    }
+
 
 }

@@ -41,8 +41,8 @@ public class Advertisements {
     @Column(name = "creation_time")
     LocalDate creationTime;
 
-    @Column(name = "motor_volume")
-    String motorVolume;
+    @Column(name = "is_active")
+    Boolean isActive;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id")
@@ -55,22 +55,6 @@ public class Advertisements {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "owner_id")
     Owners owner;
-
-    //    @Column(name = "discount")
-//    Double discount;
-//    @Column(name = "daily_payment")
-//    Double dailyPayment;
-//
-//    @Column(name = "additional_details")
-//    String additionalDetails;
-//
-//    @OneToMany
-//    @JoinColumn(name = "features_id")
-//    List<Features> features;  WJLKFBKjfbsdhjfcbksdncjs hacvlwbcj;ASDBCLHJDSCVSVACBSJCBHDSHVCHSDGVAKJDS
-//
-//    @OneToMany
-//    @JoinColumn(name = "reviews")
-//    List<Reviews> reviews;
 
 
 }

@@ -5,9 +5,12 @@ import com.example.rentacarmain.dtos.adv.DetailedAdvResponse;
 
 public interface AdvertisementsService {
 
-    Long addAdvertisement(AdvertisementRequest request);
+    Long add(AdvertisementRequest request);
 
-    DetailedAdvResponse getAdvertisementById(Long id);
+    DetailedAdvResponse getById(Long id);
+
+    void deleteById(Long id);
 
 
+    void patchById(Long id, String process);
 }

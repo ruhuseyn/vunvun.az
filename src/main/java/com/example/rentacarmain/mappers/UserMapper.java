@@ -1,6 +1,7 @@
 package com.example.rentacarmain.mappers;
 
 import com.example.rentacarmain.dtos.user.PatchUserRequest;
+import com.example.rentacarmain.dtos.user.UserRequest;
 import com.example.rentacarmain.dtos.user.UserResponse;
 import com.example.rentacarmain.entities.Users;
 import org.mapstruct.InjectionStrategy;
@@ -12,5 +13,7 @@ public interface UserMapper {
     UserResponse userToUserResponse(Users users);
 
     Users UserRequestToUser(PatchUserRequest request);
+
+    Users fromUserRequest(UserRequest request);
 
 }
