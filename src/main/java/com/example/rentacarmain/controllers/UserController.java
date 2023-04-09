@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
-public class UserController {
-
-    private final UserManager userManager;
+public record UserController(
+        UserManager userManager
+) {
 
     @GetMapping("/{id}")
     public UserResponse getUserById(@PathVariable Long id){
