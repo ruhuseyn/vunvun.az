@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
-@PreAuthorize("hasRole('ADMIN')")
 public record AdminController(
         OwnerService ownerService,
         UserService userService,
@@ -56,7 +55,7 @@ public record AdminController(
         brandService.add(request);
     }
 
-    @DeleteMapping("/models/{id}")
+    @DeleteMapping("/brands/{id}")
     public void deleteBrand(@PathVariable Long id){
         brandService.deleteById(id);
     }
