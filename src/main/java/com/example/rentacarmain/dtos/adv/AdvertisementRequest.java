@@ -19,10 +19,6 @@ public record AdvertisementRequest(
         BigDecimal price,
         @NotNull(message = "Creationtime is mandatory")
         LocalDate creationTime,
-        @NotBlank(message = "Motorvolume is mandatory")
-        @NotNull
-        @NotEmpty
-        String motorVolume,
         @NotNull(message = "Model is mandatory")
         ModelRequest model,
         @NotNull(message = "Owner is mandatory")

@@ -1,4 +1,4 @@
-package com.example.rentacarmain.serviceImpl;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.adv.AdvertisementRequest;
 import com.example.rentacarmain.dtos.adv.DetailedAdvResponse;
@@ -9,14 +9,12 @@ import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.exceptions.subexceptions.AdvertisementNotFoundException;
-import com.example.rentacarmain.mappers.AllStructuredMapper;
-import com.example.rentacarmain.mappers.BrandMapper;
-import com.example.rentacarmain.mappers.OwnerMapper;
+import com.example.rentacarmain.dtos.mappers.AllStructuredMapper;
+import com.example.rentacarmain.dtos.mappers.BrandMapper;
+import com.example.rentacarmain.dtos.mappers.OwnerMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
-import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.AdvertisementsService;
-import com.example.rentacarmain.services.BrandService;
 import com.example.rentacarmain.services.elasticsearch.ElasticsearchService;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
