@@ -1,10 +1,8 @@
-package com.example.rentacarmain.serviceImpl;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.model.AddModelRequest;
-import com.example.rentacarmain.dtos.model.ModelRequestReviews;
 import com.example.rentacarmain.entities.advertisement.Model;
-import com.example.rentacarmain.mappers.AllStructuredMapper;
-import com.example.rentacarmain.mappers.ModelMapper;
+import com.example.rentacarmain.dtos.mappers.ModelMapper;
 import com.example.rentacarmain.repositories.ModelRepository;
 import com.example.rentacarmain.services.ModelService;
 import lombok.RequiredArgsConstructor;

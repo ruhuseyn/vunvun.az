@@ -1,4 +1,4 @@
-package com.example.rentacarmain.mappers;
+package com.example.rentacarmain.dtos.mappers;
 
 import com.example.rentacarmain.dtos.location.LocationRequest;
 import com.example.rentacarmain.dtos.location.LocationResponse;

@@ -1,10 +1,10 @@
-package com.example.rentacarmain.serviceImpl;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.location.LocationRequest;
 import com.example.rentacarmain.dtos.location.LocationResponse;
 import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.exceptions.subexceptions.LocationNotFoundException;
-import com.example.rentacarmain.mappers.LocationMapper;
+import com.example.rentacarmain.dtos.mappers.LocationMapper;
 import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.services.LocationService;
 import lombok.RequiredArgsConstructor;
