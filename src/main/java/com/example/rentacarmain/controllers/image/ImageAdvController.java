@@ -1,6 +1,6 @@
 package com.example.rentacarmain.controllers.image;
 
-import com.example.rentacarmain.serviceImpl.image.ImageAdvManager;
+import com.example.rentacarmain.services.serviceImpl.image.ImageAdvManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

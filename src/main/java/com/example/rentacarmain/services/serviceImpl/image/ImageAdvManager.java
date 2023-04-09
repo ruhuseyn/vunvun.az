@@ -1,4 +1,4 @@
-package com.example.rentacarmain.serviceImpl.image;
+package com.example.rentacarmain.services.serviceImpl.image;
 
 
 import com.example.rentacarmain.entities.image.ImageAdv;
