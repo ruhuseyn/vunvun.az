@@ -12,8 +12,11 @@ import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/advertisement")
-public class AdvertisementController {
+public class AdvertisementController{
+
+
     private final AdvertisementsService advertisementsService;
+
     private static final Logger logger = LoggerFactory.getLogger(AdvertisementController.class);
 
     public AdvertisementController(AdvertisementsService advertisementsService) {
@@ -23,13 +26,13 @@ public class AdvertisementController {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     @PreAuthorize("hasRole('OWNER')")
-    public Long addAdv(@Valid @RequestBody AdvertisementRequest request) {
+    public Long addAdv(@Valid @RequestBody AdvertisementRequest request){
         logger.debug("AdvertisementController: addAdv method is called");
         return advertisementsService.add(request);
     }
 
     @GetMapping("/{id}")
-    public DetailedAdvResponse getById(@PathVariable("id") Long id) {
+    public DetailedAdvResponse getById(@PathVariable("id") Long id){
         logger.debug("AdvertisementController: getById method is called");
         return advertisementsService.getById(id);
     }

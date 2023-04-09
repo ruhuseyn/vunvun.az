@@ -1,5 +1,6 @@
 package com.example.rentacarmain.dtos.adv;
 
+import com.example.rentacarmain.dtos.location.AdvertisementLocationRequest;
 import com.example.rentacarmain.dtos.location.LocationRequest;
 import com.example.rentacarmain.dtos.model.ModelRequest;
 import com.example.rentacarmain.dtos.owner.OwnerRequest;
@@ -24,6 +25,6 @@ public record AdvertisementRequest(
         @NotNull(message = "Owner is mandatory")
         OwnerRequest owner,
         @NotNull(message = "Location is mandatory")
-        LocationRequest location) {
+        AdvertisementLocationRequest location) {
 
 }

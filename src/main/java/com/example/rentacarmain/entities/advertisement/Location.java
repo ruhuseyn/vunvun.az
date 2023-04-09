@@ -23,6 +23,6 @@ public class Location {
     Long id;
 
     @Column(name = "location_name")
-    String locationName;
+    String name;
 
 }
