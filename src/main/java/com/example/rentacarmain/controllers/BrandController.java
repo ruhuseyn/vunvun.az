@@ -2,8 +2,6 @@ package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.brand.BrandDTO;
 import com.example.rentacarmain.entities.advertisement.Brand;
-import com.example.rentacarmain.mappers.AllStructuredMapper;
-import com.example.rentacarmain.repositories.BrandRepository;
 import com.example.rentacarmain.services.BrandService;
 import org.springframework.web.bind.annotation.*;
 
