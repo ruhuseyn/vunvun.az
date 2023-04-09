@@ -1,8 +1,8 @@
-package com.example.rentacarmain.serviceImpl;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.ReviewResponse;
 import com.example.rentacarmain.exceptions.ReviewNotFoundException;
-import com.example.rentacarmain.mappers.ReviewMapper;
+import com.example.rentacarmain.dtos.mappers.ReviewMapper;
 import com.example.rentacarmain.repositories.ReviewRepository;
 import com.example.rentacarmain.services.ReviewService;
 import lombok.RequiredArgsConstructor;
