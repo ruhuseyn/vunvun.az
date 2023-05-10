@@ -2,7 +2,7 @@ package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.response.OwnerResponse;
 import com.example.rentacarmain.entities.Users;
-import com.example.rentacarmain.managers.OwnerManager;
+import com.example.rentacarmain.services.serviceImpl.OwnerManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

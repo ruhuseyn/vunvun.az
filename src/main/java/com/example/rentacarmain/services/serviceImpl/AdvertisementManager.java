@@ -1,4 +1,4 @@
-package com.example.rentacarmain.managers;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.dtos.request.AdvertisementRequest;
 import com.example.rentacarmain.dtos.response.DetailedAdvResponse;
@@ -9,8 +9,8 @@ import com.example.rentacarmain.entities.advertisement.Location;
 import com.example.rentacarmain.entities.advertisement.Model;
 import com.example.rentacarmain.entities.elasticsearch.AdvertisementEs;
 import com.example.rentacarmain.exceptions.subexceptions.AdvertisementNotFoundException;
-import com.example.rentacarmain.mappers.AllStructuredMapper;
-import com.example.rentacarmain.mappers.OwnerMapper;
+import com.example.rentacarmain.dtos.mappers.AllStructuredMapper;
+import com.example.rentacarmain.dtos.mappers.OwnerMapper;
 import com.example.rentacarmain.repositories.AdvertisementRepository;
 import com.example.rentacarmain.repositories.LocationRepository;
 import com.example.rentacarmain.repositories.ModelRepository;

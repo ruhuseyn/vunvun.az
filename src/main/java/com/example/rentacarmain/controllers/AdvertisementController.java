@@ -2,7 +2,7 @@ package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.request.AdvertisementRequest;
 import com.example.rentacarmain.dtos.response.DetailedAdvResponse;
-import com.example.rentacarmain.managers.AdvertisementManager;
+import com.example.rentacarmain.services.serviceImpl.AdvertisementManager;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

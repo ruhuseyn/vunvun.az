@@ -1,4 +1,4 @@
-package com.example.rentacarmain.managers;
+package com.example.rentacarmain.services.serviceImpl;
 
 import com.example.rentacarmain.entities.advertisement.Brand;
 import com.example.rentacarmain.exceptions.subexceptions.BrandAlreadyExistException;

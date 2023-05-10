@@ -1,11 +1,13 @@
 package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.response.UserResponse;
-import com.example.rentacarmain.managers.AdminManager;
+import com.example.rentacarmain.services.serviceImpl.AdminManager;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
+@PreAuthorize("hasRole('ADMIN')")
 public record AdminController(AdminManager adminManager) {
 
     @PutMapping("/update/{id}")

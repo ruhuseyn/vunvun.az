@@ -1,5 +1,6 @@
 package com.example.rentacarmain.mappers;
 
+import com.example.rentacarmain.dtos.mappers.UserMapper;
 import com.example.rentacarmain.dtos.response.UserResponse;
 import com.example.rentacarmain.entities.Users;
 import org.assertj.core.api.Assertions;

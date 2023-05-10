@@ -1,7 +1,7 @@
 package com.example.rentacarmain.controllers;
 
 import com.example.rentacarmain.dtos.response.UserResponse;
-import com.example.rentacarmain.managers.UserManager;
+import com.example.rentacarmain.services.serviceImpl.UserManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

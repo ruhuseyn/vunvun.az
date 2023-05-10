@@ -1,0 +1,7 @@
+TODO: improve image service
+TODO: Remove Elasticsearch from app
+TODO: Develop admin service
+TODO: Add review logic
+TODO: change Exceptions structure
+TODO: Naming all components(vars. meths.)
+TODO: Change Mappers

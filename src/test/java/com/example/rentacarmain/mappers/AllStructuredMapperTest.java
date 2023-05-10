@@ -1,5 +1,6 @@
 package com.example.rentacarmain.mappers;
 
+import com.example.rentacarmain.dtos.mappers.AllStructuredMapper;
 import com.example.rentacarmain.dtos.request.*;
 import com.example.rentacarmain.dtos.response.AdvertisementResponse;
 import com.example.rentacarmain.entities.Owners;
